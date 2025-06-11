@@ -8,7 +8,7 @@ repository = "https://github.com/no-materials/liblo-sys"
 homepage = "https://github.com/no-materials/liblo-sys"
 documentation = "https://docs.rs/liblo-sys"
 readme = "README.md"
-keywords = ["ffi", "osc", "liblo", "sound", "media", "music"]
+keywords = ["ffi", "osc", "liblo", "sound", "media"]
 categories = ["multimedia::audio", "external-ffi-bindings"]
 license = "MIT OR Apache-2.0"
 
