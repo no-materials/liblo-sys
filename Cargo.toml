@@ -1,0 +1,16 @@
+[package]
+name = "liblo-sys"
+version = "0.1.0"
+edition = "2021"
+authors = ["nomaterials <nomaterials@gmail.com>"]
+description = "Raw FFI bindings for liblo (Open Sound Control library)"
+keywords = ["audio", "osc", "ffi", "sys", "music"]
+categories = ["multimedia::audio", "external-ffi-bindings"]
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+libc = "0.2"
+
+[build-dependencies]
+bindgen = "0.72"
+pkg-config = "0.3"
