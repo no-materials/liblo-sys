@@ -2391,13 +2391,14 @@ extern "C" {
         __flags: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
-#[doc = " \\brief A structure to store OSC TimeTag values."]
+/// \brief A structure to store OSC TimeTag values.
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct lo_timetag {
-    #[doc = " The number of seconds since Jan 1st 1900 in the UTC timezone."]
+    /// The number of seconds since Jan 1st 1900 in the UTC timezone.
     pub sec: u32,
-    #[doc = " The fractions of a second offset from above, expressed as 1/2^32nds\n of a second"]
+    /// The fractions of a second offset from above, expressed as 1/2^32nds
+    /// of a second
     pub frac: u32,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -2407,75 +2408,86 @@ const _: () = {
     ["Offset of field: lo_timetag::sec"][::std::mem::offset_of!(lo_timetag, sec) - 0usize];
     ["Offset of field: lo_timetag::frac"][::std::mem::offset_of!(lo_timetag, frac) - 4usize];
 };
-#[doc = " bundle element is a message"]
+/// bundle element is a message
 pub const lo_element_type_LO_ELEMENT_MESSAGE: lo_element_type = 1;
-#[doc = " bundle element is a bundle"]
+/// bundle element is a bundle
 pub const lo_element_type_LO_ELEMENT_BUNDLE: lo_element_type = 2;
-#[doc = " \\brief An enumeration of bundle element types liblo can handle.\n\n The element of a bundle can either be a message or an other bundle."]
+/// \brief An enumeration of bundle element types liblo can handle.
+///
+/// The element of a bundle can either be a message or an other bundle.
 pub type lo_element_type = ::std::os::raw::c_uint;
-#[doc = " 32 bit signed integer."]
+/// 32 bit signed integer.
 pub const lo_type_LO_INT32: lo_type = 105;
-#[doc = " 32 bit IEEE-754 float."]
+/// 32 bit IEEE-754 float.
 pub const lo_type_LO_FLOAT: lo_type = 102;
-#[doc = " Standard C, NULL terminated string."]
+/// Standard C, NULL terminated string.
 pub const lo_type_LO_STRING: lo_type = 115;
-#[doc = " OSC binary blob type. Accessed using the lo_blob_*() functions."]
+/// OSC binary blob type. Accessed using the lo_blob_*() functions.
 pub const lo_type_LO_BLOB: lo_type = 98;
-#[doc = " 64 bit signed integer."]
+/// 64 bit signed integer.
 pub const lo_type_LO_INT64: lo_type = 104;
-#[doc = " OSC TimeTag type, represented by the lo_timetag structure."]
+/// OSC TimeTag type, represented by the lo_timetag structure.
 pub const lo_type_LO_TIMETAG: lo_type = 116;
-#[doc = " 64 bit IEEE-754 double."]
+/// 64 bit IEEE-754 double.
 pub const lo_type_LO_DOUBLE: lo_type = 100;
-#[doc = " Standard C, NULL terminated, string. Used in systems which\n distinguish strings and symbols."]
+/// Standard C, NULL terminated, string. Used in systems which
+/// distinguish strings and symbols.
 pub const lo_type_LO_SYMBOL: lo_type = 83;
-#[doc = " Standard C, 8 bit, char variable."]
+/// Standard C, 8 bit, char variable.
 pub const lo_type_LO_CHAR: lo_type = 99;
-#[doc = " A 4 byte MIDI packet."]
+/// A 4 byte MIDI packet.
 pub const lo_type_LO_MIDI: lo_type = 109;
-#[doc = " Sybol representing the value True."]
+/// Sybol representing the value True.
 pub const lo_type_LO_TRUE: lo_type = 84;
-#[doc = " Sybol representing the value False."]
+/// Sybol representing the value False.
 pub const lo_type_LO_FALSE: lo_type = 70;
-#[doc = " Sybol representing the value Nil."]
+/// Sybol representing the value Nil.
 pub const lo_type_LO_NIL: lo_type = 78;
-#[doc = " Sybol representing the value Infinitum."]
+/// Sybol representing the value Infinitum.
 pub const lo_type_LO_INFINITUM: lo_type = 73;
-#[doc = " \\brief An enumeration of the OSC types liblo can send and receive.\n\n The value of the enumeration is the typechar used to tag messages and to\n specify arguments with lo_send()."]
+/// \brief An enumeration of the OSC types liblo can send and receive.
+///
+/// The value of the enumeration is the typechar used to tag messages and to
+/// specify arguments with lo_send().
 pub type lo_type = ::std::os::raw::c_uint;
-#[doc = " \\brief Union used to read values from incoming messages.\n\n Types can generally be read using argv[n]->t where n is the argument number\n and t is the type character, with the exception of strings and symbols which\n must be read with &argv[n]->t."]
+/// \brief Union used to read values from incoming messages.
+///
+/// Types can generally be read using argv[n]->t where n is the argument number
+/// and t is the type character, with the exception of strings and symbols which
+/// must be read with &argv[n]->t.
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union lo_arg {
-    #[doc = " 32 bit signed integer."]
+    /// 32 bit signed integer.
     pub i: i32,
-    #[doc = " 32 bit signed integer."]
+    /// 32 bit signed integer.
     pub i32_: i32,
-    #[doc = " 64 bit signed integer."]
+    /// 64 bit signed integer.
     pub h: i64,
-    #[doc = " 64 bit signed integer."]
+    /// 64 bit signed integer.
     pub i64_: i64,
-    #[doc = " 32 bit IEEE-754 float."]
+    /// 32 bit IEEE-754 float.
     pub f: f32,
-    #[doc = " 32 bit IEEE-754 float."]
+    /// 32 bit IEEE-754 float.
     pub f32_: f32,
-    #[doc = " 64 bit IEEE-754 double."]
+    /// 64 bit IEEE-754 double.
     pub d: f64,
-    #[doc = " 64 bit IEEE-754 double."]
+    /// 64 bit IEEE-754 double.
     pub f64_: f64,
-    #[doc = " Standard C, NULL terminated string."]
+    /// Standard C, NULL terminated string.
     pub s: ::std::os::raw::c_char,
-    #[doc = " Standard C, NULL terminated, string. Used in systems which\n distinguish strings and symbols."]
+    /// Standard C, NULL terminated, string. Used in systems which
+    /// distinguish strings and symbols.
     pub S: ::std::os::raw::c_char,
-    #[doc = " Standard C, 8 bit, char."]
+    /// Standard C, 8 bit, char.
     pub c: ::std::os::raw::c_uchar,
-    #[doc = " A 4 byte MIDI packet."]
+    /// A 4 byte MIDI packet.
     pub m: [u8; 4usize],
-    #[doc = " OSC TimeTag value."]
+    /// OSC TimeTag value.
     pub t: lo_timetag,
     pub blob: lo_arg__bindgen_ty_1,
 }
-#[doc = " Blob"]
+/// Blob
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct lo_arg__bindgen_ty_1 {
@@ -2510,21 +2522,48 @@ const _: () = {
     ["Offset of field: lo_arg::t"][::std::mem::offset_of!(lo_arg, t) - 0usize];
     ["Offset of field: lo_arg::blob"][::std::mem::offset_of!(lo_arg, blob) - 0usize];
 };
-#[doc = " \\brief A reference to an OSC service.\n\n Created by calls to lo_address_new() or lo_address_new_from_url()."]
+/// \brief A reference to an OSC service.
+///
+/// Created by calls to lo_address_new() or lo_address_new_from_url().
 pub type lo_address = *mut ::std::os::raw::c_void;
-#[doc = " \\brief A object to store an opaque binary data object.\n\n Can be passed over OSC using the 'b' type. Created by calls to lo_blob_new()."]
+/// \brief A object to store an opaque binary data object.
+///
+/// Can be passed over OSC using the 'b' type. Created by calls to lo_blob_new().
 pub type lo_blob = *mut ::std::os::raw::c_void;
-#[doc = " \\brief A low-level object used to represent messages passed over OSC.\n\n Created by calls to lo_message_new(), arguments can be added with calls to\n lo_message_add_*()."]
+/// \brief A low-level object used to represent messages passed over OSC.
+///
+/// Created by calls to lo_message_new(), arguments can be added with calls to
+/// lo_message_add_*().
 pub type lo_message = *mut ::std::os::raw::c_void;
-#[doc = " \\brief A low-level object used to represent bundles of messages passed over\n OSC.\n\n Created by calls to lo_bundle_new(), messages can be added with calls to\n lo_bundle_add_message()."]
+/// \brief A low-level object used to represent bundles of messages passed over
+/// OSC.
+///
+/// Created by calls to lo_bundle_new(), messages can be added with calls to
+/// lo_bundle_add_message().
 pub type lo_bundle = *mut ::std::os::raw::c_void;
-#[doc = " \\brief An object representing an method on a server.\n\n Returned by calls to lo_server_thread_add_method() and\n lo_server_add_method()."]
+/// \brief An object representing an method on a server.
+///
+/// Returned by calls to lo_server_thread_add_method() and
+/// lo_server_add_method().
 pub type lo_method = *mut ::std::os::raw::c_void;
-#[doc = " \\brief An object representing an instance of an OSC server.\n\n Created by calls to lo_server_new(). If you wish to have the server\n operate in a background thread, use lo_server_thread instead."]
+/// \brief An object representing an instance of an OSC server.
+///
+/// Created by calls to lo_server_new(). If you wish to have the server
+/// operate in a background thread, use lo_server_thread instead.
 pub type lo_server = *mut ::std::os::raw::c_void;
-#[doc = " \\brief An object representing a thread containing an OSC server.\n\n Created by calls to lo_server_thread_new()."]
+/// \brief An object representing a thread containing an OSC server.
+///
+/// Created by calls to lo_server_thread_new().
 pub type lo_server_thread = *mut ::std::os::raw::c_void;
-#[doc = " \\brief A callback function to receive notification of an error in a server or\n server thread.\n\n On callback the parameters will be set to the following values:\n\n \\param num An error number that can be used to identify this condition.\n \\param msg An error message describing the condidtion.\n \\param where A string describing the place the error occured - typically\n either a function call or method path."]
+/// \brief A callback function to receive notification of an error in a server or
+/// server thread.
+///
+/// On callback the parameters will be set to the following values:
+///
+/// \param num An error number that can be used to identify this condition.
+/// \param msg An error message describing the condidtion.
+/// \param where A string describing the place the error occured - typically
+/// either a function call or method path.
 pub type lo_err_handler = ::std::option::Option<
     unsafe extern "C" fn(
         num: ::std::os::raw::c_int,
@@ -2532,7 +2571,31 @@ pub type lo_err_handler = ::std::option::Option<
         where_: *const ::std::os::raw::c_char,
     ),
 >;
-#[doc = " \\brief A callback function to receive notification of matching message\n arriving in the server or server thread.\n\n The return value tells the method dispatcher whether this handler\n has dealt with the message correctly: a return value of 0 indicates\n that it has been handled, and it should not attempt to pass it on\n to any other handlers, non-0 means that it has not been handled and\n the dispatcher will attempt to find more handlers that match the\n path and types of the incoming message.\n\n On callback the paramters will be set to the following values:\n\n \\param path That path that the incoming message was sent to\n \\param types If you specided types in your method creation call then this\n will match those and the incoming types will have been coerced to match,\n otherwise it will be the types of the arguments of the incoming message.\n \\param argv An array of lo_arg types containing the values, e.g. if the\n first argument of the incoming message is of type 'f' then the value will be\n found in argv[0]->f.\n \\param argc The number of arguments received.\n \\param msg A structure containing the original raw message as received. No\n type coercion will have occured and the data will be in OSC byte order\n (bigendian).\n \\param user_data This contains the user_data value passed in the call to\n lo_server_thread_add_method."]
+/// \brief A callback function to receive notification of matching message
+/// arriving in the server or server thread.
+///
+/// The return value tells the method dispatcher whether this handler
+/// has dealt with the message correctly: a return value of 0 indicates
+/// that it has been handled, and it should not attempt to pass it on
+/// to any other handlers, non-0 means that it has not been handled and
+/// the dispatcher will attempt to find more handlers that match the
+/// path and types of the incoming message.
+///
+/// On callback the paramters will be set to the following values:
+///
+/// \param path That path that the incoming message was sent to
+/// \param types If you specided types in your method creation call then this
+/// will match those and the incoming types will have been coerced to match,
+/// otherwise it will be the types of the arguments of the incoming message.
+/// \param argv An array of lo_arg types containing the values, e.g. if the
+/// first argument of the incoming message is of type 'f' then the value will be
+/// found in argv[0]->f.
+/// \param argc The number of arguments received.
+/// \param msg A structure containing the original raw message as received. No
+/// type coercion will have occured and the data will be in OSC byte order
+/// (bigendian).
+/// \param user_data This contains the user_data value passed in the call to
+/// lo_server_thread_add_method.
 pub type lo_method_handler = ::std::option::Option<
     unsafe extern "C" fn(
         path: *const ::std::os::raw::c_char,
@@ -2543,34 +2606,74 @@ pub type lo_method_handler = ::std::option::Option<
         user_data: *mut ::std::os::raw::c_void,
     ) -> ::std::os::raw::c_int,
 >;
-#[doc = " \\brief A callback function to receive notification of a bundle being\n dispatched by the server or server thread.\n\n This callback allows applications to be aware of incoming bundles\n and preserve ordering and atomicity of messages in bundles.\n\n If installed with lo_server_add_bundle_handlers, this callback will be\n called with \\a time set to the time tag of the bundle, and \\a user_data\n set to the user_data parameter passed to lo_server_add_bundle_handlers.\n\n Note that bundles may be nested, in which case calls to the bundle start\n and end handlers will also be nested.  The application can keep track of\n nested bundles in a stack-like manner by treating the start handler as\n \"push\" and the end handler as \"pop\".  For example, a bundle containing two\n bundles would fire 6 callbacks: begin, begin, end, begin, end, end."]
+/// \brief A callback function to receive notification of a bundle being
+/// dispatched by the server or server thread.
+///
+/// This callback allows applications to be aware of incoming bundles
+/// and preserve ordering and atomicity of messages in bundles.
+///
+/// If installed with lo_server_add_bundle_handlers, this callback will be
+/// called with \a time set to the time tag of the bundle, and \a user_data
+/// set to the user_data parameter passed to lo_server_add_bundle_handlers.
+///
+/// Note that bundles may be nested, in which case calls to the bundle start
+/// and end handlers will also be nested.  The application can keep track of
+/// nested bundles in a stack-like manner by treating the start handler as
+/// "push" and the end handler as "pop".  For example, a bundle containing two
+/// bundles would fire 6 callbacks: begin, begin, end, begin, end, end.
 pub type lo_bundle_start_handler = ::std::option::Option<
     unsafe extern "C" fn(
         time: lo_timetag,
         user_data: *mut ::std::os::raw::c_void,
     ) -> ::std::os::raw::c_int,
 >;
-#[doc = " \\brief A callback function to receive notification of a bundle dispatch\n being completed by the server or server thread.\n\n If installed with lo_server_add_bundle_handlers, this callback will be\n called after all the messages of a bundle have been dispatched with\n \\a user_data set to the user_data parameter passed to\n lo_server_add_bundle_handlers."]
+/// \brief A callback function to receive notification of a bundle dispatch
+/// being completed by the server or server thread.
+///
+/// If installed with lo_server_add_bundle_handlers, this callback will be
+/// called after all the messages of a bundle have been dispatched with
+/// \a user_data set to the user_data parameter passed to
+/// lo_server_add_bundle_handlers.
 pub type lo_bundle_end_handler = ::std::option::Option<
     unsafe extern "C" fn(user_data: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int,
 >;
-#[doc = " \\brief A callback function to perform initialization when the\n server thread is started.\n\n If installed with lo_server_thread_set_callbacks, this callback\n will be called in the server thread, just before the server starts\n listening for events. \\a user_data is set to the user_data\n parameter passed to lo_server_thread_add_functions.\n\n If the return value is non-zero, the thread start will be aborted."]
+/// \brief A callback function to perform initialization when the
+/// server thread is started.
+///
+/// If installed with lo_server_thread_set_callbacks, this callback
+/// will be called in the server thread, just before the server starts
+/// listening for events. \a user_data is set to the user_data
+/// parameter passed to lo_server_thread_add_functions.
+///
+/// If the return value is non-zero, the thread start will be aborted.
 pub type lo_server_thread_init_callback = ::std::option::Option<
     unsafe extern "C" fn(
         s: lo_server_thread,
         user_data: *mut ::std::os::raw::c_void,
     ) -> ::std::os::raw::c_int,
 >;
-#[doc = " \\brief A callback function to perform cleanup when the server\n thread is started.\n\n If installed with lo_server_thread_set_callbacks, this callback\n will be called in the server thread, after the server have stopped\n listening and processing events, before it quits. \\a user_data is\n set to the user_data parameter passed to\n lo_server_thread_add_functions."]
+/// \brief A callback function to perform cleanup when the server
+/// thread is started.
+///
+/// If installed with lo_server_thread_set_callbacks, this callback
+/// will be called in the server thread, after the server have stopped
+/// listening and processing events, before it quits. \a user_data is
+/// set to the user_data parameter passed to
+/// lo_server_thread_add_functions.
 pub type lo_server_thread_cleanup_callback = ::std::option::Option<
     unsafe extern "C" fn(s: lo_server_thread, user_data: *mut ::std::os::raw::c_void),
 >;
 pub type __gnuc_va_list = __builtin_va_list;
 pub type va_list = __gnuc_va_list;
-#[doc = " \\brief Type used to represent numerical values in conversions between OSC\n types."]
+/// \brief Type used to represent numerical values in conversions between OSC
+/// types.
 pub type lo_hires = u128;
 extern "C" {
-    #[doc = " \\brief Send a lo_message object to target targ\n\n This is slightly more efficient than lo_send() if you want to send a lot of\n similar messages. The messages are constructed with the lo_message_new() and\n \\ref lo_message_add_int32 \"lo_message_add*()\" functions."]
+    /// \brief Send a lo_message object to target targ
+    ///
+    /// This is slightly more efficient than lo_send() if you want to send a lot of
+    /// similar messages. The messages are constructed with the lo_message_new() and
+    /// \ref lo_message_add_int32 "lo_message_add*()" functions.
     pub fn lo_send_message(
         targ: lo_address,
         path: *const ::std::os::raw::c_char,
@@ -2578,7 +2681,17 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Send a lo_message object to target targ from address of serv\n\n This is slightly more efficient than lo_send() if you want to send a lot of\n similar messages. The messages are constructed with the lo_message_new() and\n \\ref lo_message_add_int32 \"lo_message_add*()\" functions.\n\n \\param targ The address to send the message to\n \\param serv The server socket to send the message from\n              (can be NULL to use new socket)\n \\param path The path to send the message to\n \\param msg  The bundle itself"]
+    /// \brief Send a lo_message object to target targ from address of serv
+    ///
+    /// This is slightly more efficient than lo_send() if you want to send a lot of
+    /// similar messages. The messages are constructed with the lo_message_new() and
+    /// \ref lo_message_add_int32 "lo_message_add*()" functions.
+    ///
+    /// \param targ The address to send the message to
+    /// \param serv The server socket to send the message from
+    ///              (can be NULL to use new socket)
+    /// \param path The path to send the message to
+    /// \param msg  The bundle itself
     pub fn lo_send_message_from(
         targ: lo_address,
         serv: lo_server,
@@ -2587,11 +2700,22 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Send a lo_bundle object to address targ\n\n Bundles are constructed with the\n lo_bundle_new() and lo_bundle_add_message() functions."]
+    /// \brief Send a lo_bundle object to address targ
+    ///
+    /// Bundles are constructed with the
+    /// lo_bundle_new() and lo_bundle_add_message() functions.
     pub fn lo_send_bundle(targ: lo_address, b: lo_bundle) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Send a lo_bundle object to address targ from address of serv\n\n Bundles are constructed with the\n lo_bundle_new() and lo_bundle_add_message() functions.\n\n \\param targ The address to send the bundle to\n \\param serv The server socket to send the bundle from\n              (can be NULL to use new socket)\n \\param b    The bundle itself"]
+    /// \brief Send a lo_bundle object to address targ from address of serv
+    ///
+    /// Bundles are constructed with the
+    /// lo_bundle_new() and lo_bundle_add_message() functions.
+    ///
+    /// \param targ The address to send the bundle to
+    /// \param serv The server socket to send the bundle from
+    ///              (can be NULL to use new socket)
+    /// \param b    The bundle itself
     pub fn lo_send_bundle_from(
         targ: lo_address,
         serv: lo_server,
@@ -2599,23 +2723,39 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Create a new lo_message object"]
+    /// \brief Create a new lo_message object
     pub fn lo_message_new() -> lo_message;
 }
 extern "C" {
-    #[doc = " \\brief  Add one to a message's reference count.\n\n Messages are reference counted. If a message is multiply referenced,\n the message's counter should be incremented. It is automatically\n decremented by lo_message_free lo_message_free_recursive, with\n lo_message_free_recursive being the preferable method."]
+    /// \brief  Add one to a message's reference count.
+    ///
+    /// Messages are reference counted. If a message is multiply referenced,
+    /// the message's counter should be incremented. It is automatically
+    /// decremented by lo_message_free lo_message_free_recursive, with
+    /// lo_message_free_recursive being the preferable method.
     pub fn lo_message_incref(m: lo_message);
 }
 extern "C" {
-    #[doc = " \\brief Create a new lo_message object by cloning an already existing one"]
+    /// \brief Create a new lo_message object by cloning an already existing one
     pub fn lo_message_clone(m: lo_message) -> lo_message;
 }
 extern "C" {
-    #[doc = " \\brief Free memory allocated by lo_message_new() and any subsequent\n \\ref lo_message_add_int32 lo_message_add*() calls."]
+    /// \brief Free memory allocated by lo_message_new() and any subsequent
+    /// \ref lo_message_add_int32 lo_message_add*() calls.
     pub fn lo_message_free(m: lo_message);
 }
 extern "C" {
-    #[doc = " \\brief Append a number of arguments to a message.\n\n The data will be added in OSC byteorder (bigendian).\n\n \\param m The message to be extended.\n \\param types The types of the data items in the message, types are defined in\n lo_types_common.h\n \\param ... The data values to be transmitted. The types of the arguments\n passed here must agree with the types specified in the type parameter.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief Append a number of arguments to a message.
+    ///
+    /// The data will be added in OSC byteorder (bigendian).
+    ///
+    /// \param m The message to be extended.
+    /// \param types The types of the data items in the message, types are defined in
+    /// lo_types_common.h
+    /// \param ... The data values to be transmitted. The types of the arguments
+    /// passed here must agree with the types specified in the type parameter.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add(
         m: lo_message,
         types: *const ::std::os::raw::c_char,
@@ -2623,7 +2763,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\internal \\brief the real message_add function (don't call directly)"]
+    /// \internal \brief the real message_add function (don't call directly)
     pub fn lo_message_add_internal(
         m: lo_message,
         file: *const ::std::os::raw::c_char,
@@ -2633,7 +2773,22 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Append a varargs list to a message.\n\n The data will be added in OSC byteorder (bigendian).\n IMPORTANT: args list must be terminated with LO_ARGS_END, or this call will\n fail.  This is used to do simple error checking on the sizes of parameters\n passed.\n\n \\param m The message to be extended.\n \\param types The types of the data items in the message, types are defined in\n lo_types_common.h\n \\param ap The va_list created by a C function declared with an\n ellipsis (...) argument, and pre-initialised with\n \"va_start(ap)\". The types of the arguments passed here must agree\n with the types specified in the type parameter.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief Append a varargs list to a message.
+    ///
+    /// The data will be added in OSC byteorder (bigendian).
+    /// IMPORTANT: args list must be terminated with LO_ARGS_END, or this call will
+    /// fail.  This is used to do simple error checking on the sizes of parameters
+    /// passed.
+    ///
+    /// \param m The message to be extended.
+    /// \param types The types of the data items in the message, types are defined in
+    /// lo_types_common.h
+    /// \param ap The va_list created by a C function declared with an
+    /// ellipsis (...) argument, and pre-initialised with
+    /// "va_start(ap)". The types of the arguments passed here must agree
+    /// with the types specified in the type parameter.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_varargs(
         m: lo_message,
         types: *const ::std::os::raw::c_char,
@@ -2641,7 +2796,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\internal \\brief the real message_add_varargs function (don't call directly)"]
+    /// \internal \brief the real message_add_varargs function (don't call directly)
     pub fn lo_message_add_varargs_internal(
         m: lo_message,
         types: *const ::std::os::raw::c_char,
@@ -2651,93 +2806,164 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Append a data item and typechar of the specified type to a message.\n\n The data will be added in OSC byteorder (bigendian).\n\n \\param m The message to be extended.\n \\param a The data item.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief Append a data item and typechar of the specified type to a message.
+    ///
+    /// The data will be added in OSC byteorder (bigendian).
+    ///
+    /// \param m The message to be extended.
+    /// \param a The data item.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_int32(m: lo_message, a: i32) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_float(m: lo_message, a: f32) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_string(
         m: lo_message,
         a: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_blob(m: lo_message, a: lo_blob) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_int64(m: lo_message, a: i64) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_timetag(m: lo_message, a: lo_timetag) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_double(m: lo_message, a: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_symbol(
         m: lo_message,
         a: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_char(m: lo_message, a: ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_midi(m: lo_message, a: *mut u8) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_true(m: lo_message) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_false(m: lo_message) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_nil(m: lo_message) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Append a data item and typechar of the specified type to a message.\n See lo_message_add_int32() for details.\n\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief  Append a data item and typechar of the specified type to a message.
+    /// See lo_message_add_int32() for details.
+    ///
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_message_add_infinitum(m: lo_message) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Returns the source (lo_address) of an incoming message.\n\n Returns NULL if the message is outgoing. Do not free the returned address."]
+    /// \brief  Returns the source (lo_address) of an incoming message.
+    ///
+    /// Returns NULL if the message is outgoing. Do not free the returned address.
     pub fn lo_message_get_source(m: lo_message) -> lo_address;
 }
 extern "C" {
-    #[doc = " \\brief  Returns the timestamp (lo_timetag *) of a bundled incoming message.\n\n Returns LO_TT_IMMEDIATE if the message is outgoing, or did not arrive\n contained in a bundle. Do not free the returned timetag."]
+    /// \brief  Returns the timestamp (lo_timetag *) of a bundled incoming message.
+    ///
+    /// Returns LO_TT_IMMEDIATE if the message is outgoing, or did not arrive
+    /// contained in a bundle. Do not free the returned timetag.
     pub fn lo_message_get_timestamp(m: lo_message) -> lo_timetag;
 }
 extern "C" {
-    #[doc = " \\brief  Return the message type tag string.\n\n The result is valid until further data is added with lo_message_add*()."]
+    /// \brief  Return the message type tag string.
+    ///
+    /// The result is valid until further data is added with lo_message_add*().
     pub fn lo_message_get_types(m: lo_message) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief  Return the message argument count.\n\n The result is valid until further data is added with lo_message_add*()."]
+    /// \brief  Return the message argument count.
+    ///
+    /// The result is valid until further data is added with lo_message_add*().
     pub fn lo_message_get_argc(m: lo_message) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Return the message arguments. Do not free the returned data.\n\n The result is valid until further data is added with lo_message_add*()."]
+    /// \brief  Return the message arguments. Do not free the returned data.
+    ///
+    /// The result is valid until further data is added with lo_message_add*().
     pub fn lo_message_get_argv(m: lo_message) -> *mut *mut lo_arg;
 }
 extern "C" {
-    #[doc = " \\brief  Return the length of a message in bytes.\n\n \\param m The message to be sized\n \\param path The path the message will be sent to"]
+    /// \brief  Return the length of a message in bytes.
+    ///
+    /// \param m The message to be sized
+    /// \param path The path the message will be sent to
     pub fn lo_message_length(m: lo_message, path: *const ::std::os::raw::c_char) -> usize;
 }
 extern "C" {
-    #[doc = " \\brief  Serialise the lo_message object to an area of memory and return a\n pointer to the serialised form.  Opposite of lo_message_deserialise().\n\n \\param m The message to be serialised\n \\param path The path the message will be sent to\n \\param to The address to serialise to, memory will be allocated if to is\n NULL.\n \\param size If this pointer is non-NULL the size of the memory area\n will be written here\n\n The returned form is suitable to be sent over a low level OSC transport,\n having the correct endianess and bit-packed structure."]
+    /// \brief  Serialise the lo_message object to an area of memory and return a
+    /// pointer to the serialised form.  Opposite of lo_message_deserialise().
+    ///
+    /// \param m The message to be serialised
+    /// \param path The path the message will be sent to
+    /// \param to The address to serialise to, memory will be allocated if to is
+    /// NULL.
+    /// \param size If this pointer is non-NULL the size of the memory area
+    /// will be written here
+    ///
+    /// The returned form is suitable to be sent over a low level OSC transport,
+    /// having the correct endianess and bit-packed structure.
     pub fn lo_message_serialise(
         m: lo_message,
         path: *const ::std::os::raw::c_char,
@@ -2746,7 +2972,17 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    #[doc = " \\brief  Deserialise a raw OSC message and return a new lo_message object.\n Opposite of lo_message_serialise().\n\n \\param data Pointer to the raw OSC message data in network transmission form\n (network byte order where appropriate).\n \\param size The size of data in bytes\n \\param result If this pointer is non-NULL, the result or error code will\n be written here.\n\n Returns a new lo_message, or NULL if deserialisation fails.\n Use lo_message_free() to free the resulting object."]
+    /// \brief  Deserialise a raw OSC message and return a new lo_message object.
+    /// Opposite of lo_message_serialise().
+    ///
+    /// \param data Pointer to the raw OSC message data in network transmission form
+    /// (network byte order where appropriate).
+    /// \param size The size of data in bytes
+    /// \param result If this pointer is non-NULL, the result or error code will
+    /// be written here.
+    ///
+    /// Returns a new lo_message, or NULL if deserialisation fails.
+    /// Use lo_message_free() to free the resulting object.
     pub fn lo_message_deserialise(
         data: *mut ::std::os::raw::c_void,
         size: usize,
@@ -2754,7 +2990,19 @@ extern "C" {
     ) -> lo_message;
 }
 extern "C" {
-    #[doc = " \\brief  Dispatch a raw block of memory containing an OSC message.\n\n This is useful when a raw block of memory is available that is\n structured as OSC, and you wish to use liblo to dispatch the\n message to a handler function as if it had been received over the\n network.\n\n \\param s The lo_server to use for dispatching.\n \\param data Pointer to the raw OSC message data in network transmission form\n (network byte order where appropriate).\n \\param size The size of data in bytes\n\n Returns the number of bytes used if successful, or less than 0 otherwise."]
+    /// \brief  Dispatch a raw block of memory containing an OSC message.
+    ///
+    /// This is useful when a raw block of memory is available that is
+    /// structured as OSC, and you wish to use liblo to dispatch the
+    /// message to a handler function as if it had been received over the
+    /// network.
+    ///
+    /// \param s The lo_server to use for dispatching.
+    /// \param data Pointer to the raw OSC message data in network transmission form
+    /// (network byte order where appropriate).
+    /// \param size The size of data in bytes
+    ///
+    /// Returns the number of bytes used if successful, or less than 0 otherwise.
     pub fn lo_server_dispatch_data(
         s: lo_server,
         data: *mut ::std::os::raw::c_void,
@@ -2762,31 +3010,65 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Return the hostname of a lo_address object\n\n Returned value must not be modified or free'd. Value will be a dotted quad,\n colon'd IPV6 address, or resolvable name."]
+    /// \brief  Return the hostname of a lo_address object
+    ///
+    /// Returned value must not be modified or free'd. Value will be a dotted quad,
+    /// colon'd IPV6 address, or resolvable name.
     pub fn lo_address_get_hostname(a: lo_address) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief  Return the port/service name of a lo_address object\n\n Returned value must not be modified or free'd. Value will be a service name\n or ASCII representation of the port number."]
+    /// \brief  Return the port/service name of a lo_address object
+    ///
+    /// Returned value must not be modified or free'd. Value will be a service name
+    /// or ASCII representation of the port number.
     pub fn lo_address_get_port(a: lo_address) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief  Return the protocol of a lo_address object\n\n Returned value will be one of LO_UDP, LO_TCP or LO_UNIX."]
+    /// \brief  Return the protocol of a lo_address object
+    ///
+    /// Returned value will be one of LO_UDP, LO_TCP or LO_UNIX.
     pub fn lo_address_get_protocol(a: lo_address) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Return a URL representing an OSC address\n\n Returned value must be free'd."]
+    /// \brief  Return a URL representing an OSC address
+    ///
+    /// Returned value must be free'd.
     pub fn lo_address_get_url(a: lo_address) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Set the Time-to-Live value for a given target address.\n\n This is required for sending multicast UDP messages.  A value of 1\n (the usual case) keeps the message within the subnet, while 255\n means a global, unrestricted scope.\n\n \\param t An OSC address.\n \\param ttl An integer specifying the scope of a multicast UDP message."]
+    /// \brief Set the Time-to-Live value for a given target address.
+    ///
+    /// This is required for sending multicast UDP messages.  A value of 1
+    /// (the usual case) keeps the message within the subnet, while 255
+    /// means a global, unrestricted scope.
+    ///
+    /// \param t An OSC address.
+    /// \param ttl An integer specifying the scope of a multicast UDP message.
     pub fn lo_address_set_ttl(t: lo_address, ttl: ::std::os::raw::c_int);
 }
 extern "C" {
-    #[doc = " \\brief Get the Time-to-Live value for a given target address.\n\n \\param t An OSC address.\n \\return An integer specifying the scope of a multicast UDP message."]
+    /// \brief Get the Time-to-Live value for a given target address.
+    ///
+    /// \param t An OSC address.
+    /// \return An integer specifying the scope of a multicast UDP message.
     pub fn lo_address_get_ttl(t: lo_address) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Set the network interface to use for a given target address.\n\n The caller should specify either the iface or ip variable.  The IP,\n if specified, should match the same network family as the OSC\n address.  (That is, should correctly correspond to IPv4 or IPv6.)\n Typically the assigned network interface will only be used in the\n case of sending multicast messages.  It is recommended to use the\n if_nameindex POSIX function to get a list of network interface\n names.\n\n \\param t An OSC address.\n \\param iface The name of a network interface on the local system.\n \\param ip The IP address of a network interface on the local system.\n \\return 0 if the interface was successfully identified, or non-zero\n         otherwise."]
+    /// \brief Set the network interface to use for a given target address.
+    ///
+    /// The caller should specify either the iface or ip variable.  The IP,
+    /// if specified, should match the same network family as the OSC
+    /// address.  (That is, should correctly correspond to IPv4 or IPv6.)
+    /// Typically the assigned network interface will only be used in the
+    /// case of sending multicast messages.  It is recommended to use the
+    /// if_nameindex POSIX function to get a list of network interface
+    /// names.
+    ///
+    /// \param t An OSC address.
+    /// \param iface The name of a network interface on the local system.
+    /// \param ip The IP address of a network interface on the local system.
+    /// \return 0 if the interface was successfully identified, or non-zero
+    ///         otherwise.
     pub fn lo_address_set_iface(
         t: lo_address,
         iface: *const ::std::os::raw::c_char,
@@ -2794,33 +3076,63 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Get the name of the network interface assigned to an OSC address.\n\n \\param t An OSC address.\n \\return A string pointer or 0 if no interface has been assigned.\n         Caller should not modify the provided string.  It is a\n         legal pointer until the next call to lo_address_set_iface\n         or lo_address_free."]
+    /// \brief  Get the name of the network interface assigned to an OSC address.
+    ///
+    /// \param t An OSC address.
+    /// \return A string pointer or 0 if no interface has been assigned.
+    ///         Caller should not modify the provided string.  It is a
+    ///         legal pointer until the next call to lo_address_set_iface
+    ///         or lo_address_free.
     pub fn lo_address_get_iface(t: lo_address) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Set the TCP_NODELAY flag on outgoing TCP connections.\n \\param t The address to set this flag for.\n \\param enable Non-zero to set the flag, zero to unset it.\n \\return the previous value of this flag."]
+    /// \brief Set the TCP_NODELAY flag on outgoing TCP connections.
+    /// \param t The address to set this flag for.
+    /// \param enable Non-zero to set the flag, zero to unset it.
+    /// \return the previous value of this flag.
     pub fn lo_address_set_tcp_nodelay(
         t: lo_address,
         enable: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Set outgoing stream connections (e.g., TCP) to be\n        transmitted using the SLIP packetizing protocol.\n \\param t The address to set this flag for.\n \\param enable Non-zero to set the flag, zero to unset it.\n \\return the previous value of this flag."]
+    /// \brief Set outgoing stream connections (e.g., TCP) to be
+    ///        transmitted using the SLIP packetizing protocol.
+    /// \param t The address to set this flag for.
+    /// \param enable Non-zero to set the flag, zero to unset it.
+    /// \return the previous value of this flag.
     pub fn lo_address_set_stream_slip(
         t: lo_address,
         enable: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Create a new bundle object.\n\n OSC Bundles encapsulate one or more OSC messages and may include a timestamp\n indicating when the bundle should be dispatched.\n\n \\param tt The timestamp when the bundle should be handled by the receiver.\n           Pass LO_TT_IMMEDIATE if you want the receiving server to dispatch\n           the bundle as soon as it receives it."]
+    /// \brief  Create a new bundle object.
+    ///
+    /// OSC Bundles encapsulate one or more OSC messages and may include a timestamp
+    /// indicating when the bundle should be dispatched.
+    ///
+    /// \param tt The timestamp when the bundle should be handled by the receiver.
+    ///           Pass LO_TT_IMMEDIATE if you want the receiving server to dispatch
+    ///           the bundle as soon as it receives it.
     pub fn lo_bundle_new(tt: lo_timetag) -> lo_bundle;
 }
 extern "C" {
-    #[doc = " \\brief  Add one to a bundle's reference count.\n\n Bundles are reference counted. If a bundle is multiply referenced,\n the bundle's counter should be incremented. It is automatically\n decremented by lo_bundle_free lo_bundle_free_recursive, with\n lo_bundle_free_recursive being the preferable method."]
+    /// \brief  Add one to a bundle's reference count.
+    ///
+    /// Bundles are reference counted. If a bundle is multiply referenced,
+    /// the bundle's counter should be incremented. It is automatically
+    /// decremented by lo_bundle_free lo_bundle_free_recursive, with
+    /// lo_bundle_free_recursive being the preferable method.
     pub fn lo_bundle_incref(b: lo_bundle);
 }
 extern "C" {
-    #[doc = " \\brief  Adds an OSC message to an existing bundle.\n\n The message passed is appended to the list of messages in the bundle to be\n dispatched to 'path'.\n\n \\return 0 if successful, less than 0 otherwise."]
+    /// \brief  Adds an OSC message to an existing bundle.
+    ///
+    /// The message passed is appended to the list of messages in the bundle to be
+    /// dispatched to 'path'.
+    ///
+    /// \return 0 if successful, less than 0 otherwise.
     pub fn lo_bundle_add_message(
         b: lo_bundle,
         path: *const ::std::os::raw::c_char,
@@ -2828,27 +3140,51 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Adds an OSC bundle to an existing bundle.\n\n The child bundle passed is appended to the list of child bundles|messages in the parent bundle to be\n dispatched.\n\n \\return 0 if successful, less than 0 otherwise."]
+    /// \brief  Adds an OSC bundle to an existing bundle.
+    ///
+    /// The child bundle passed is appended to the list of child bundles|messages in the parent bundle to be
+    /// dispatched.
+    ///
+    /// \return 0 if successful, less than 0 otherwise.
     pub fn lo_bundle_add_bundle(b: lo_bundle, n: lo_bundle) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Return the length of a bundle in bytes.\n\n Includes the marker and typetag length.\n\n \\param b The bundle to be sized"]
+    /// \brief  Return the length of a bundle in bytes.
+    ///
+    /// Includes the marker and typetag length.
+    ///
+    /// \param b The bundle to be sized
     pub fn lo_bundle_length(b: lo_bundle) -> usize;
 }
 extern "C" {
-    #[doc = " \\brief  Return the number of top-level elements in a bundle.\n\n \\param b The bundle to be counted."]
+    /// \brief  Return the number of top-level elements in a bundle.
+    ///
+    /// \param b The bundle to be counted.
     pub fn lo_bundle_count(b: lo_bundle) -> ::std::os::raw::c_uint;
 }
 extern "C" {
-    #[doc = " \\brief  Gets the element type contained within a bundle.\n\n Returns a lo_element_type at a given index within a bundle.\n\n \\return The requested lo_element_type if successful, otherwise 0."]
+    /// \brief  Gets the element type contained within a bundle.
+    ///
+    /// Returns a lo_element_type at a given index within a bundle.
+    ///
+    /// \return The requested lo_element_type if successful, otherwise 0.
     pub fn lo_bundle_get_type(b: lo_bundle, index: ::std::os::raw::c_int) -> lo_element_type;
 }
 extern "C" {
-    #[doc = " \\brief  Gets a nested bundle contained within a bundle.\n\n Returns a lo_bundle at a given index within a bundle.\n\n \\return The requested lo_bundle if successful, otherwise 0."]
+    /// \brief  Gets a nested bundle contained within a bundle.
+    ///
+    /// Returns a lo_bundle at a given index within a bundle.
+    ///
+    /// \return The requested lo_bundle if successful, otherwise 0.
     pub fn lo_bundle_get_bundle(b: lo_bundle, index: ::std::os::raw::c_int) -> lo_bundle;
 }
 extern "C" {
-    #[doc = " \\brief  Gets a message contained within a bundle.\n\n Returns a lo_message at a given index within a bundle, and\n optionally the path associated with that message.\n\n \\return The requested lo_message if successful, otherwise 0."]
+    /// \brief  Gets a message contained within a bundle.
+    ///
+    /// Returns a lo_message at a given index within a bundle, and
+    /// optionally the path associated with that message.
+    ///
+    /// \return The requested lo_message if successful, otherwise 0.
     pub fn lo_bundle_get_message(
         b: lo_bundle,
         index: ::std::os::raw::c_int,
@@ -2856,11 +3192,25 @@ extern "C" {
     ) -> lo_message;
 }
 extern "C" {
-    #[doc = " \\brief  Get the timestamp associated with a bundle.\n\n \\param b The bundle for which the timestamp should be returned.\n\n \\return The timestamp of the bundle as a lo_timetag."]
+    /// \brief  Get the timestamp associated with a bundle.
+    ///
+    /// \param b The bundle for which the timestamp should be returned.
+    ///
+    /// \return The timestamp of the bundle as a lo_timetag.
     pub fn lo_bundle_get_timestamp(b: lo_bundle) -> lo_timetag;
 }
 extern "C" {
-    #[doc = " \\brief  Serialise the bundle object to an area of memory and return a\n pointer to the serialised form.\n\n \\param b The bundle to be serialised\n \\param to The address to serialise to, memory will be allocated if to is\n NULL.\n \\param size If this pointer is non-NULL the size of the memory area\n will be written here\n\n The returned form is suitable to be sent over a low level OSC transport,\n having the correct endianess and bit-packed structure."]
+    /// \brief  Serialise the bundle object to an area of memory and return a
+    /// pointer to the serialised form.
+    ///
+    /// \param b The bundle to be serialised
+    /// \param to The address to serialise to, memory will be allocated if to is
+    /// NULL.
+    /// \param size If this pointer is non-NULL the size of the memory area
+    /// will be written here
+    ///
+    /// The returned form is suitable to be sent over a low level OSC transport,
+    /// having the correct endianess and bit-packed structure.
     pub fn lo_bundle_serialise(
         b: lo_bundle,
         to: *mut ::std::os::raw::c_void,
@@ -2868,27 +3218,52 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    #[doc = " \\brief  Frees the memory taken by a bundle object.\n\n \\param b The bundle to be freed."]
+    /// \brief  Frees the memory taken by a bundle object.
+    ///
+    /// \param b The bundle to be freed.
     pub fn lo_bundle_free(b: lo_bundle);
 }
 extern "C" {
-    #[doc = " \\brief  Frees the memory taken by a bundle object and its messages and nested bundles recursively.\n\n \\param b The bundle, which may contain messages and nested bundles, to be freed."]
+    /// \brief  Frees the memory taken by a bundle object and its messages and nested bundles recursively.
+    ///
+    /// \param b The bundle, which may contain messages and nested bundles, to be freed.
     pub fn lo_bundle_free_recursive(b: lo_bundle);
 }
 extern "C" {
-    #[doc = " \\brief  Obsolete, use lo_bundle_free_recursive instead.\n\n \\param b The bundle, which may contain messages and nested bundles, to be freed."]
+    /// \brief  Obsolete, use lo_bundle_free_recursive instead.
+    ///
+    /// \param b The bundle, which may contain messages and nested bundles, to be freed.
     pub fn lo_bundle_free_messages(b: lo_bundle);
 }
 extern "C" {
-    #[doc = " \\brief Return true if the type specified has a numerical value, such as\n LO_INT32, LO_FLOAT etc.\n\n \\param a The type to be tested."]
+    /// \brief Return true if the type specified has a numerical value, such as
+    /// LO_INT32, LO_FLOAT etc.
+    ///
+    /// \param a The type to be tested.
     pub fn lo_is_numerical_type(a: lo_type) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return true if the type specified has a textual value, such as\n LO_STRING or LO_SYMBOL.\n\n \\param a The type to be tested."]
+    /// \brief Return true if the type specified has a textual value, such as
+    /// LO_STRING or LO_SYMBOL.
+    ///
+    /// \param a The type to be tested.
     pub fn lo_is_string_type(a: lo_type) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Attempt to convert one OSC type to another.\n\n Numerical types (eg LO_INT32, LO_FLOAT etc.) may be converted to other\n numerical types and string types (LO_STRING and LO_SYMBOL) may be converted\n to the other type. This is done automatically if a received message matches\n the path, but not the exact types, and is coercible (ie. all numerical\n types in numerical positions).\n\n On failure no translation occurs and false is returned.\n\n \\param type_to   The type of the destination variable.\n \\param to        A pointer to the destination variable.\n \\param type_from The type of the source variable.\n \\param from      A pointer to the source variable."]
+    /// \brief Attempt to convert one OSC type to another.
+    ///
+    /// Numerical types (eg LO_INT32, LO_FLOAT etc.) may be converted to other
+    /// numerical types and string types (LO_STRING and LO_SYMBOL) may be converted
+    /// to the other type. This is done automatically if a received message matches
+    /// the path, but not the exact types, and is coercible (ie. all numerical
+    /// types in numerical positions).
+    ///
+    /// On failure no translation occurs and false is returned.
+    ///
+    /// \param type_to   The type of the destination variable.
+    /// \param to        A pointer to the destination variable.
+    /// \param type_from The type of the source variable.
+    /// \param from      A pointer to the source variable.
     pub fn lo_coerce(
         type_to: lo_type,
         to: *mut lo_arg,
@@ -2897,15 +3272,42 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the numerical value of the given argument with the\n maximum native system precision."]
+    /// \brief Return the numerical value of the given argument with the
+    /// maximum native system precision.
     pub fn lo_hires_val(type_: lo_type, p: *mut lo_arg) -> lo_hires;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server instance.\n\n Using lo_server_recv(), lo_servers block until they receive OSC\n messages.  If you want non-blocking behaviour see\n lo_server_recv_noblock() or the \\ref lo_server_thread_new\n \"lo_server_thread_*\" functions.\n\n \\param port If NULL is passed then an unused UDP port will be chosen by the\n system, its number may be retrieved with lo_server_thread_get_port()\n so it can be passed to clients. Otherwise a decimal port number, service\n name or UNIX domain socket path may be passed.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling."]
+    /// \brief Create a new server instance.
+    ///
+    /// Using lo_server_recv(), lo_servers block until they receive OSC
+    /// messages.  If you want non-blocking behaviour see
+    /// lo_server_recv_noblock() or the \ref lo_server_thread_new
+    /// "lo_server_thread_*" functions.
+    ///
+    /// \param port If NULL is passed then an unused UDP port will be chosen by the
+    /// system, its number may be retrieved with lo_server_thread_get_port()
+    /// so it can be passed to clients. Otherwise a decimal port number, service
+    /// name or UNIX domain socket path may be passed.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
     pub fn lo_server_new(port: *const ::std::os::raw::c_char, err_h: lo_err_handler) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server instance, specifying protocol.\n\n Using lo_server_recv(), lo_servers block until they receive OSC\n messages.  If you want non-blocking behaviour see\n lo_server_recv_noblock() or the \\ref lo_server_thread_new\n \"lo_server_thread_*\" functions.\n\n \\param port If using UDP then NULL may be passed to find an unused port.\n Otherwise a decimal port number orservice name or may be passed.\n If using UNIX domain sockets then a socket path should be passed here.\n \\param proto The protocol to use, should be one of LO_UDP, LO_TCP or LO_UNIX.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling."]
+    /// \brief Create a new server instance, specifying protocol.
+    ///
+    /// Using lo_server_recv(), lo_servers block until they receive OSC
+    /// messages.  If you want non-blocking behaviour see
+    /// lo_server_recv_noblock() or the \ref lo_server_thread_new
+    /// "lo_server_thread_*" functions.
+    ///
+    /// \param port If using UDP then NULL may be passed to find an unused port.
+    /// Otherwise a decimal port number orservice name or may be passed.
+    /// If using UNIX domain sockets then a socket path should be passed here.
+    /// \param proto The protocol to use, should be one of LO_UDP, LO_TCP or LO_UNIX.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
     pub fn lo_server_new_with_proto(
         port: *const ::std::os::raw::c_char,
         proto: ::std::os::raw::c_int,
@@ -2913,7 +3315,16 @@ extern "C" {
     ) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server instance, and join a UDP multicast group.\n\n \\param group The multicast group to join.  See documentation on IP\n multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html\n \\param port If using UDP then NULL may be passed to find an unused port.\n Otherwise a decimal port number or service name or may be passed.\n If using UNIX domain sockets then a socket path should be passed here.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling."]
+    /// \brief Create a new server instance, and join a UDP multicast group.
+    ///
+    /// \param group The multicast group to join.  See documentation on IP
+    /// multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html
+    /// \param port If using UDP then NULL may be passed to find an unused port.
+    /// Otherwise a decimal port number or service name or may be passed.
+    /// If using UNIX domain sockets then a socket path should be passed here.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
     pub fn lo_server_new_multicast(
         group: *const ::std::os::raw::c_char,
         port: *const ::std::os::raw::c_char,
@@ -2921,7 +3332,22 @@ extern "C" {
     ) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server instance, and join a UDP multicast\n group, optionally specifying which network interface to use.\n Note that usually only one of iface or ip are specified.\n\n \\param group The multicast group to join.  See documentation on IP\n multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html\n \\param port If using UDP then NULL may be passed to find an unused port.\n Otherwise a decimal port number or service name or may be passed.\n If using UNIX domain sockets then a socket path should be passed here.\n \\param iface A string specifying the name of a network interface to\n use, or zero if not specified.\n \\param ip A string specifying the IP address of a network interface\n to use, or zero if not specified.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling."]
+    /// \brief Create a new server instance, and join a UDP multicast
+    /// group, optionally specifying which network interface to use.
+    /// Note that usually only one of iface or ip are specified.
+    ///
+    /// \param group The multicast group to join.  See documentation on IP
+    /// multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html
+    /// \param port If using UDP then NULL may be passed to find an unused port.
+    /// Otherwise a decimal port number or service name or may be passed.
+    /// If using UNIX domain sockets then a socket path should be passed here.
+    /// \param iface A string specifying the name of a network interface to
+    /// use, or zero if not specified.
+    /// \param ip A string specifying the IP address of a network interface
+    /// to use, or zero if not specified.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
     pub fn lo_server_new_multicast_iface(
         group: *const ::std::os::raw::c_char,
         port: *const ::std::os::raw::c_char,
@@ -2931,29 +3357,57 @@ extern "C" {
     ) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server instance, taking port and the optional\n multicast group IP from an URL string.\n\n \\param url The URL to specify the server parameters.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling.\n \\return A new lo_server instance."]
+    /// \brief Create a new server instance, taking port and the optional
+    /// multicast group IP from an URL string.
+    ///
+    /// \param url The URL to specify the server parameters.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
+    /// \return A new lo_server instance.
     pub fn lo_server_new_from_url(
         url: *const ::std::os::raw::c_char,
         err_h: lo_err_handler,
     ) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Enables or disables type coercion during message dispatch.\n \\param server The server to toggle this option for.\n \\param enable Non-zero to enable, or zero to disable type coercion.\n \\return The previous value of this option."]
+    /// \brief Enables or disables type coercion during message dispatch.
+    /// \param server The server to toggle this option for.
+    /// \param enable Non-zero to enable, or zero to disable type coercion.
+    /// \return The previous value of this option.
     pub fn lo_server_enable_coercion(
         server: lo_server,
         enable: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Free up memory used by the lo_server object"]
+    /// \brief Free up memory used by the lo_server object
     pub fn lo_server_free(s: lo_server);
 }
 extern "C" {
-    #[doc = " \\brief Wait for an OSC message to be received\n\n \\param s The server to wait for connections on.\n \\param timeout A timeout in milliseconds to wait for the incoming packet.\n a value of 0 will return immediately.\n\n The return value is 1 if there is a message waiting or 0 if\n there is no message. If there is a message waiting you can now\n call lo_server_recv() to receive that message."]
+    /// \brief Wait for an OSC message to be received
+    ///
+    /// \param s The server to wait for connections on.
+    /// \param timeout A timeout in milliseconds to wait for the incoming packet.
+    /// a value of 0 will return immediately.
+    ///
+    /// The return value is 1 if there is a message waiting or 0 if
+    /// there is no message. If there is a message waiting you can now
+    /// call lo_server_recv() to receive that message.
     pub fn lo_server_wait(s: lo_server, timeout: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Wait on multiple servers for an OSC message to be received\n\n \\param s An array of servers to wait for connections on.\n \\param status An array to receive the status of each server.\n \\param num_servers The number of servers in the array s.\n \\param timeout A timeout in milliseconds to wait for the incoming packet.\n a value of 0 will return immediately.\n\n The return value is the number of servers with a message waiting or\n 0 if there is no message. If there is a message waiting you can now\n call lo_server_recv() to receive that message."]
+    /// \brief Wait on multiple servers for an OSC message to be received
+    ///
+    /// \param s An array of servers to wait for connections on.
+    /// \param status An array to receive the status of each server.
+    /// \param num_servers The number of servers in the array s.
+    /// \param timeout A timeout in milliseconds to wait for the incoming packet.
+    /// a value of 0 will return immediately.
+    ///
+    /// The return value is the number of servers with a message waiting or
+    /// 0 if there is no message. If there is a message waiting you can now
+    /// call lo_server_recv() to receive that message.
     pub fn lo_servers_wait(
         s: *mut lo_server,
         status: *mut ::std::os::raw::c_int,
@@ -2962,14 +3416,32 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Look for an OSC message waiting to be received\n\n \\param s The server to wait for connections on.\n \\param timeout A timeout in milliseconds to wait for the incoming packet.\n a value of 0 will return immediately.\n\n The return value is the number of bytes in the received message or 0 if\n there is no message. The message will be dispatched to a matching method\n if one is found."]
+    /// \brief Look for an OSC message waiting to be received
+    ///
+    /// \param s The server to wait for connections on.
+    /// \param timeout A timeout in milliseconds to wait for the incoming packet.
+    /// a value of 0 will return immediately.
+    ///
+    /// The return value is the number of bytes in the received message or 0 if
+    /// there is no message. The message will be dispatched to a matching method
+    /// if one is found.
     pub fn lo_server_recv_noblock(
         s: lo_server,
         timeout: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Look for an OSC message waiting to be received on multiple servers\n\n \\param s As array of servers to wait for connections on.\n \\param recvd An array to store the number of bytes received by each server\n in array s.\n \\param num_servers The number of servers in the array s.\n \\param timeout A timeout in milliseconds to wait for the incoming packet.\n a value of 0 will return immediately.\n\n The return value is the total number of bytes received by all servers.\n The messages will be dispatched to a matching method if one is found."]
+    /// \brief Look for an OSC message waiting to be received on multiple servers
+    ///
+    /// \param s As array of servers to wait for connections on.
+    /// \param recvd An array to store the number of bytes received by each server
+    /// in array s.
+    /// \param num_servers The number of servers in the array s.
+    /// \param timeout A timeout in milliseconds to wait for the incoming packet.
+    /// a value of 0 will return immediately.
+    ///
+    /// The return value is the total number of bytes received by all servers.
+    /// The messages will be dispatched to a matching method if one is found.
     pub fn lo_servers_recv_noblock(
         s: *mut lo_server,
         recvd: *mut ::std::os::raw::c_int,
@@ -2978,11 +3450,26 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Block, waiting for an OSC message to be received\n\n The return value is the number of bytes in the received message. The message\n will be dispatched to a matching method if one is found."]
+    /// \brief Block, waiting for an OSC message to be received
+    ///
+    /// The return value is the number of bytes in the received message. The message
+    /// will be dispatched to a matching method if one is found.
     pub fn lo_server_recv(s: lo_server) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Add an OSC method to the specifed server.\n\n \\param s The server the method is to be added to.\n \\param path The OSC path to register the method to. If NULL is passed the\n method will match all paths.\n \\param typespec The typespec the method accepts. Incoming messages with\n similar typespecs (e.g. ones with numerical types in the same position) will\n be coerced to the typespec given here.\n \\param h The method handler callback function that will be called if a\n matching message is received\n \\param user_data A value that will be passed to the callback function, h,\n when its invoked matching from this method.\n \\return A unique pointer identifying the method.  It should not be freed."]
+    /// \brief Add an OSC method to the specifed server.
+    ///
+    /// \param s The server the method is to be added to.
+    /// \param path The OSC path to register the method to. If NULL is passed the
+    /// method will match all paths.
+    /// \param typespec The typespec the method accepts. Incoming messages with
+    /// similar typespecs (e.g. ones with numerical types in the same position) will
+    /// be coerced to the typespec given here.
+    /// \param h The method handler callback function that will be called if a
+    /// matching message is received
+    /// \param user_data A value that will be passed to the callback function, h,
+    /// when its invoked matching from this method.
+    /// \return A unique pointer identifying the method.  It should not be freed.
     pub fn lo_server_add_method(
         s: lo_server,
         path: *const ::std::os::raw::c_char,
@@ -2992,7 +3479,12 @@ extern "C" {
     ) -> lo_method;
 }
 extern "C" {
-    #[doc = " \\brief Delete an OSC method from the specified server.\n\n \\param s The server the method is to be removed from.\n \\param path The OSC path of the method to delete. If NULL is passed the\n method will match the generic handler.\n \\param typespec The typespec the method accepts."]
+    /// \brief Delete an OSC method from the specified server.
+    ///
+    /// \param s The server the method is to be removed from.
+    /// \param path The OSC path of the method to delete. If NULL is passed the
+    /// method will match the generic handler.
+    /// \param typespec The typespec the method accepts.
     pub fn lo_server_del_method(
         s: lo_server,
         path: *const ::std::os::raw::c_char,
@@ -3000,11 +3492,24 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " \\brief Delete a specific OSC method from the specified server.\n\n \\param s The server the method is to be removed from.\n \\param m The lo_method identifier returned from lo_server_add_method for\n          the method to delete from the server.\n \\return Non-zero if it was not found in the list of methods for the server."]
+    /// \brief Delete a specific OSC method from the specified server.
+    ///
+    /// \param s The server the method is to be removed from.
+    /// \param m The lo_method identifier returned from lo_server_add_method for
+    ///          the method to delete from the server.
+    /// \return Non-zero if it was not found in the list of methods for the server.
     pub fn lo_server_del_lo_method(s: lo_server, m: lo_method) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Add bundle notification handlers to the specified server.\n\n \\param s The server the method is to be added to.\n \\param sh The callback function that will be called before the messages\n of a bundle are dispatched\n \\param eh The callback function that will be called after the messages\n of a bundle are dispatched\n \\param user_data A value that will be passed to the user_data parameter\n of both callback functions."]
+    /// \brief Add bundle notification handlers to the specified server.
+    ///
+    /// \param s The server the method is to be added to.
+    /// \param sh The callback function that will be called before the messages
+    /// of a bundle are dispatched
+    /// \param eh The callback function that will be called after the messages
+    /// of a bundle are dispatched
+    /// \param user_data A value that will be passed to the user_data parameter
+    /// of both callback functions.
     pub fn lo_server_add_bundle_handlers(
         s: lo_server,
         sh: lo_bundle_start_handler,
@@ -3013,23 +3518,53 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the file descriptor of the server socket.\n\n If the server protocol supports exposing the server's underlying\n receive mechanism for monitoring with select() or poll(), this function\n returns the file descriptor needed, otherwise, it returns -1.\n\n WARNING: when using this function beware that not all OSC packets that are\n received are dispatched immediately. lo_server_events_pending() and\n lo_server_next_event_delay() can be used to tell if there are pending\n events and how long before you should attempt to receive them."]
+    /// \brief Return the file descriptor of the server socket.
+    ///
+    /// If the server protocol supports exposing the server's underlying
+    /// receive mechanism for monitoring with select() or poll(), this function
+    /// returns the file descriptor needed, otherwise, it returns -1.
+    ///
+    /// WARNING: when using this function beware that not all OSC packets that are
+    /// received are dispatched immediately. lo_server_events_pending() and
+    /// lo_server_next_event_delay() can be used to tell if there are pending
+    /// events and how long before you should attempt to receive them.
     pub fn lo_server_get_socket_fd(s: lo_server) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the port number that the server has bound to.\n\n Useful when NULL is passed for the port number and you wish to know how to\n address the server."]
+    /// \brief Return the port number that the server has bound to.
+    ///
+    /// Useful when NULL is passed for the port number and you wish to know how to
+    /// address the server.
     pub fn lo_server_get_port(s: lo_server) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief  Return the protocol that the server is using.\n\n Returned value will be one of LO_UDP, LO_TCP or LO_UNIX."]
+    /// \brief  Return the protocol that the server is using.
+    ///
+    /// Returned value will be one of LO_UDP, LO_TCP or LO_UNIX.
     pub fn lo_server_get_protocol(s: lo_server) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return an OSC URL that can be used to contact the server.\n\n The return value should be free()'d when it is no longer needed."]
+    /// \brief Return an OSC URL that can be used to contact the server.
+    ///
+    /// The return value should be free()'d when it is no longer needed.
     pub fn lo_server_get_url(s: lo_server) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Toggle event queue.\n If queueing is enabled, timetagged messages that are sent in\n advance of the current time will be put on an internal queue, and\n they will be dispatched at the indicated time.  By default,\n queueing is enabled.  Use this function to disable it, if it is\n desired to have a server process messages immediately.  In that\n case, use lo_message_get_timestamp() to get the message timestamp\n from within a method handler.\n \\param s A liblo server\n \\param queue_enabled Zero to disable queue, non-zero to enable.\n \\param dispatch_remaining If non-zero, previously queued messages\n                           will be immediately dispatched when queue\n                           is disabled.\n \\return The previous state of queue behaviour.  Zero if queueing\n         was previously disabled, non-zero otherwise."]
+    /// \brief Toggle event queue.
+    /// If queueing is enabled, timetagged messages that are sent in
+    /// advance of the current time will be put on an internal queue, and
+    /// they will be dispatched at the indicated time.  By default,
+    /// queueing is enabled.  Use this function to disable it, if it is
+    /// desired to have a server process messages immediately.  In that
+    /// case, use lo_message_get_timestamp() to get the message timestamp
+    /// from within a method handler.
+    /// \param s A liblo server
+    /// \param queue_enabled Zero to disable queue, non-zero to enable.
+    /// \param dispatch_remaining If non-zero, previously queued messages
+    ///                           will be immediately dispatched when queue
+    ///                           is disabled.
+    /// \return The previous state of queue behaviour.  Zero if queueing
+    ///         was previously disabled, non-zero otherwise.
     pub fn lo_server_enable_queue(
         s: lo_server,
         queue_enabled: ::std::os::raw::c_int,
@@ -3037,57 +3572,102 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return true if there are scheduled events (eg. from bundles)\n waiting to be dispatched by the server"]
+    /// \brief Return true if there are scheduled events (eg. from bundles)
+    /// waiting to be dispatched by the server
     pub fn lo_server_events_pending(s: lo_server) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the time in seconds until the next scheduled event.\n\n If the delay is greater than 100 seconds then it will return 100.0."]
+    /// \brief Return the time in seconds until the next scheduled event.
+    ///
+    /// If the delay is greater than 100 seconds then it will return 100.0.
     pub fn lo_server_next_event_delay(s: lo_server) -> f64;
 }
 extern "C" {
-    #[doc = " \\brief Set the maximum message size accepted by a server.\n\n For UDP servers, the maximum message size cannot exceed 64k, due to\n the UDP transport specifications.  For TCP servers, this number may\n be larger, but be aware that one or more contiguous blocks of\n memory of this size may be allocated by liblo.  (At least one per\n connection.)\n\n \\param s The server on which to operate.\n \\param req_size The new maximum message size to request, 0 if it\n should not be modified, or -1 if it should be set to unlimited.\n Note that an unlimited message buffer may make your application\n open to a denial of service attack.\n \\return The new maximum message size is returned, which may or may\n not be equal to req_size.  If -1 is returned, maximum size is\n unlimited."]
+    /// \brief Set the maximum message size accepted by a server.
+    ///
+    /// For UDP servers, the maximum message size cannot exceed 64k, due to
+    /// the UDP transport specifications.  For TCP servers, this number may
+    /// be larger, but be aware that one or more contiguous blocks of
+    /// memory of this size may be allocated by liblo.  (At least one per
+    /// connection.)
+    ///
+    /// \param s The server on which to operate.
+    /// \param req_size The new maximum message size to request, 0 if it
+    /// should not be modified, or -1 if it should be set to unlimited.
+    /// Note that an unlimited message buffer may make your application
+    /// open to a denial of service attack.
+    /// \return The new maximum message size is returned, which may or may
+    /// not be equal to req_size.  If -1 is returned, maximum size is
+    /// unlimited.
     pub fn lo_server_max_msg_size(
         s: lo_server,
         req_size: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the protocol portion of an OSC URL, eg. udp, tcp.\n\n This library uses OSC URLs of the form: osc.prot://hostname:port/path if the\n prot part is missing, UDP is assumed.\n\n The return value should be free()'d when it is no longer needed."]
+    /// \brief Return the protocol portion of an OSC URL, eg. udp, tcp.
+    ///
+    /// This library uses OSC URLs of the form: osc.prot://hostname:port/path if the
+    /// prot part is missing, UDP is assumed.
+    ///
+    /// The return value should be free()'d when it is no longer needed.
     pub fn lo_url_get_protocol(url: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Return the protocol ID of an OSC URL.\n\n This library uses OSC URLs of the form: osc.prot://hostname:port/path if the\n prot part is missing, UDP is assumed.\n Returned value will be one of LO_UDP, LO_TCP, LO_UNIX or -1.\n\n \\return An integer specifying the protocol. Return -1 when the protocol is\n not supported by liblo.\n"]
+    /// \brief Return the protocol ID of an OSC URL.
+    ///
+    /// This library uses OSC URLs of the form: osc.prot://hostname:port/path if the
+    /// prot part is missing, UDP is assumed.
+    /// Returned value will be one of LO_UDP, LO_TCP, LO_UNIX or -1.
+    ///
+    /// \return An integer specifying the protocol. Return -1 when the protocol is
+    /// not supported by liblo.
     pub fn lo_url_get_protocol_id(url: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the hostname portion of an OSC URL.\n\n The return value should be free()'d when it is no longer needed."]
+    /// \brief Return the hostname portion of an OSC URL.
+    ///
+    /// The return value should be free()'d when it is no longer needed.
     pub fn lo_url_get_hostname(url: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Return the port portion of an OSC URL.\n\n The return value should be free()'d when it is no longer needed."]
+    /// \brief Return the port portion of an OSC URL.
+    ///
+    /// The return value should be free()'d when it is no longer needed.
     pub fn lo_url_get_port(url: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Return the path portion of an OSC URL.\n\n The return value should be free()'d when it is no longer needed."]
+    /// \brief Return the path portion of an OSC URL.
+    ///
+    /// The return value should be free()'d when it is no longer needed.
     pub fn lo_url_get_path(url: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief A function to calculate the amount of OSC message space required by a\n C char *.\n\n Returns the storage size in bytes, which will always be a multiple of four."]
+    /// \brief A function to calculate the amount of OSC message space required by a
+    /// C char *.
+    ///
+    /// Returns the storage size in bytes, which will always be a multiple of four.
     pub fn lo_strsize(s: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief A function to calculate the amount of OSC message space required by a\n lo_blob object.\n\n Returns the storage size in bytes, which will always be a multiple of four."]
+    /// \brief A function to calculate the amount of OSC message space required by a
+    /// lo_blob object.
+    ///
+    /// Returns the storage size in bytes, which will always be a multiple of four.
     pub fn lo_blobsize(b: lo_blob) -> u32;
 }
 extern "C" {
-    #[doc = " \\brief Test a string against an OSC pattern glob\n\n \\param str The string to test\n \\param p   The pattern to test against"]
+    /// \brief Test a string against an OSC pattern glob
+    ///
+    /// \param str The string to test
+    /// \param p   The pattern to test against
     pub fn lo_pattern_match(
         str_: *const ::std::os::raw::c_char,
         p: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\internal \\brief the real send function (don't call directly)"]
+    /// \internal \brief the real send function (don't call directly)
     pub fn lo_send_internal(
         t: lo_address,
         file: *const ::std::os::raw::c_char,
@@ -3098,7 +3678,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\internal \\brief the real send_timestamped function (don't call directly)"]
+    /// \internal \brief the real send_timestamped function (don't call directly)
     pub fn lo_send_timestamped_internal(
         t: lo_address,
         file: *const ::std::os::raw::c_char,
@@ -3110,7 +3690,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\internal \\brief the real lo_send_from() function (don't call directly)"]
+    /// \internal \brief the real lo_send_from() function (don't call directly)
     pub fn lo_send_from_internal(
         targ: lo_address,
         from: lo_server,
@@ -3123,65 +3703,114 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Find the time difference between two timetags\n\n Returns a - b in seconds."]
+    /// \brief Find the time difference between two timetags
+    ///
+    /// Returns a - b in seconds.
     pub fn lo_timetag_diff(a: lo_timetag, b: lo_timetag) -> f64;
 }
 extern "C" {
-    #[doc = " \\brief Return a timetag for the current time\n\n On exit the timetag pointed to by t is filled with the OSC\n representation of this instant in time."]
+    /// \brief Return a timetag for the current time
+    ///
+    /// On exit the timetag pointed to by t is filled with the OSC
+    /// representation of this instant in time.
     pub fn lo_timetag_now(t: *mut lo_timetag);
 }
 extern "C" {
-    #[doc = " \\brief Return the storage size, in bytes, of the given argument."]
+    /// \brief Return the storage size, in bytes, of the given argument.
     pub fn lo_arg_size(type_: lo_type, data: *mut ::std::os::raw::c_void) -> usize;
 }
 extern "C" {
-    #[doc = " \\brief Given a raw OSC message, return the message path.\n\n \\param data      A pointer to the raw OSC message data.\n \\param size      The size of data in bytes (total buffer bytes).\n\n Returns the message path or NULL if an error occurs.\n Do not free() the returned pointer."]
+    /// \brief Given a raw OSC message, return the message path.
+    ///
+    /// \param data      A pointer to the raw OSC message data.
+    /// \param size      The size of data in bytes (total buffer bytes).
+    ///
+    /// Returns the message path or NULL if an error occurs.
+    /// Do not free() the returned pointer.
     pub fn lo_get_path(
         data: *mut ::std::os::raw::c_void,
         size: isize,
     ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Convert the specified argument to host byte order where necessary.\n\n \\param type The OSC type of the data item (eg. LO_FLOAT).\n \\param data A pointer to the data item to be converted. It is changed\n in-place."]
+    /// \brief Convert the specified argument to host byte order where necessary.
+    ///
+    /// \param type The OSC type of the data item (eg. LO_FLOAT).
+    /// \param data A pointer to the data item to be converted. It is changed
+    /// in-place.
     pub fn lo_arg_host_endian(type_: lo_type, data: *mut ::std::os::raw::c_void);
 }
 extern "C" {
-    #[doc = " \\brief Convert the specified argument to network byte order where necessary.\n\n \\param type The OSC type of the data item (eg. LO_FLOAT).\n \\param data A pointer to the data item to be converted. It is changed\n in-place."]
+    /// \brief Convert the specified argument to network byte order where necessary.
+    ///
+    /// \param type The OSC type of the data item (eg. LO_FLOAT).
+    /// \param data A pointer to the data item to be converted. It is changed
+    /// in-place.
     pub fn lo_arg_network_endian(type_: lo_type, data: *mut ::std::os::raw::c_void);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_bundle object."]
+    /// \brief Pretty-print a lo_bundle object.
     pub fn lo_bundle_pp(b: lo_bundle);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_message object."]
+    /// \brief Pretty-print a lo_message object.
     pub fn lo_message_pp(m: lo_message);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a set of typed arguments.\n \\param type A type string in the form provided to lo_send().\n \\param data An OSC data pointer, like that provided in the\n lo_method_handler."]
+    /// \brief Pretty-print a set of typed arguments.
+    /// \param type A type string in the form provided to lo_send().
+    /// \param data An OSC data pointer, like that provided in the
+    /// lo_method_handler.
     pub fn lo_arg_pp(type_: lo_type, data: *mut ::std::os::raw::c_void);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_server object."]
+    /// \brief Pretty-print a lo_server object.
     pub fn lo_server_pp(s: lo_server);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_method object."]
+    /// \brief Pretty-print a lo_method object.
     pub fn lo_method_pp(m: lo_method);
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_method object, but prepend a given prefix\n to all field names."]
+    /// \brief Pretty-print a lo_method object, but prepend a given prefix
+    /// to all field names.
     pub fn lo_method_pp_prefix(m: lo_method, p: *const ::std::os::raw::c_char);
 }
 extern "C" {
-    #[doc = " \\brief Create a new server thread to handle incoming OSC\n messages.\n\n Server threads take care of the message reception and dispatch by\n transparently creating a system thread to handle incoming messages.\n Use this if you do not want to handle the threading yourself.\n\n \\param port If NULL is passed then an unused port will be chosen by the\n system, its number may be retrieved with lo_server_thread_get_port()\n so it can be passed to clients. Otherwise a decimal port number, service\n name or UNIX domain socket path may be passed.\n \\param err_h A function that will be called in the event of an error being\n raised. The function prototype is defined in lo_types.h"]
+    /// \brief Create a new server thread to handle incoming OSC
+    /// messages.
+    ///
+    /// Server threads take care of the message reception and dispatch by
+    /// transparently creating a system thread to handle incoming messages.
+    /// Use this if you do not want to handle the threading yourself.
+    ///
+    /// \param port If NULL is passed then an unused port will be chosen by the
+    /// system, its number may be retrieved with lo_server_thread_get_port()
+    /// so it can be passed to clients. Otherwise a decimal port number, service
+    /// name or UNIX domain socket path may be passed.
+    /// \param err_h A function that will be called in the event of an error being
+    /// raised. The function prototype is defined in lo_types.h
     pub fn lo_server_thread_new(
         port: *const ::std::os::raw::c_char,
         err_h: lo_err_handler,
     ) -> lo_server_thread;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server thread to handle incoming OSC\n messages, and join a UDP multicast group.\n\n Server threads take care of the message reception and dispatch by\n transparently creating a system thread to handle incoming messages.\n Use this if you do not want to handle the threading yourself.\n\n \\param group The multicast group to join.  See documentation on IP\n multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html\n \\param port If NULL is passed then an unused port will be chosen by the\n system, its number may be retrieved with lo_server_thread_get_port()\n so it can be passed to clients. Otherwise a decimal port number, service\n name or UNIX domain socket path may be passed.\n \\param err_h A function that will be called in the event of an error being\n raised. The function prototype is defined in lo_types.h"]
+    /// \brief Create a new server thread to handle incoming OSC
+    /// messages, and join a UDP multicast group.
+    ///
+    /// Server threads take care of the message reception and dispatch by
+    /// transparently creating a system thread to handle incoming messages.
+    /// Use this if you do not want to handle the threading yourself.
+    ///
+    /// \param group The multicast group to join.  See documentation on IP
+    /// multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html
+    /// \param port If NULL is passed then an unused port will be chosen by the
+    /// system, its number may be retrieved with lo_server_thread_get_port()
+    /// so it can be passed to clients. Otherwise a decimal port number, service
+    /// name or UNIX domain socket path may be passed.
+    /// \param err_h A function that will be called in the event of an error being
+    /// raised. The function prototype is defined in lo_types.h
     pub fn lo_server_thread_new_multicast(
         group: *const ::std::os::raw::c_char,
         port: *const ::std::os::raw::c_char,
@@ -3189,7 +3818,22 @@ extern "C" {
     ) -> lo_server_thread;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server thread instance, and join a UDP\n multicast group, optionally specifying which network interface to\n use.  Note that usually only one of iface or ip are specified.\n\n \\param group The multicast group to join.  See documentation on IP\n multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html\n \\param port If using UDP then NULL may be passed to find an unused port.\n Otherwise a decimal port number or service name or may be passed.\n If using UNIX domain sockets then a socket path should be passed here.\n \\param iface A string specifying the name of a network interface to\n use, or zero if not specified.\n \\param ip A string specifying the IP address of a network interface\n to use, or zero if not specified.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling."]
+    /// \brief Create a new server thread instance, and join a UDP
+    /// multicast group, optionally specifying which network interface to
+    /// use.  Note that usually only one of iface or ip are specified.
+    ///
+    /// \param group The multicast group to join.  See documentation on IP
+    /// multicast for the acceptable address range; e.g., http://tldp.org/HOWTO/Multicast-HOWTO-2.html
+    /// \param port If using UDP then NULL may be passed to find an unused port.
+    /// Otherwise a decimal port number or service name or may be passed.
+    /// If using UNIX domain sockets then a socket path should be passed here.
+    /// \param iface A string specifying the name of a network interface to
+    /// use, or zero if not specified.
+    /// \param ip A string specifying the IP address of a network interface
+    /// to use, or zero if not specified.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
     pub fn lo_server_thread_new_multicast_iface(
         group: *const ::std::os::raw::c_char,
         port: *const ::std::os::raw::c_char,
@@ -3199,7 +3843,20 @@ extern "C" {
     ) -> lo_server_thread;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server thread to handle incoming OSC\n messages, specifying protocol.\n\n Server threads take care of the message reception and dispatch by\n transparently creating a system thread to handle incoming messages.\n Use this if you do not want to handle the threading yourself.\n\n \\param port If NULL is passed then an unused port will be chosen by the\n system, its number may be retrieved with lo_server_thread_get_port()\n so it can be passed to clients. Otherwise a decimal port number, service\n name or UNIX domain socket path may be passed.\n \\param proto The protocol to use, should be one of LO_UDP, LO_TCP or LO_UNIX.\n \\param err_h A function that will be called in the event of an error being\n raised. The function prototype is defined in lo_types.h"]
+    /// \brief Create a new server thread to handle incoming OSC
+    /// messages, specifying protocol.
+    ///
+    /// Server threads take care of the message reception and dispatch by
+    /// transparently creating a system thread to handle incoming messages.
+    /// Use this if you do not want to handle the threading yourself.
+    ///
+    /// \param port If NULL is passed then an unused port will be chosen by the
+    /// system, its number may be retrieved with lo_server_thread_get_port()
+    /// so it can be passed to clients. Otherwise a decimal port number, service
+    /// name or UNIX domain socket path may be passed.
+    /// \param proto The protocol to use, should be one of LO_UDP, LO_TCP or LO_UNIX.
+    /// \param err_h A function that will be called in the event of an error being
+    /// raised. The function prototype is defined in lo_types.h
     pub fn lo_server_thread_new_with_proto(
         port: *const ::std::os::raw::c_char,
         proto: ::std::os::raw::c_int,
@@ -3207,18 +3864,38 @@ extern "C" {
     ) -> lo_server_thread;
 }
 extern "C" {
-    #[doc = " \\brief Create a new server thread, taking port and the optional\n multicast group IP from an URL string.\n\n \\param url The URL to specify the server parameters.\n \\param err_h An error callback function that will be called if there is an\n error in messge reception or server creation. Pass NULL if you do not want\n error handling.\n \\return A new lo_server_thread instance."]
+    /// \brief Create a new server thread, taking port and the optional
+    /// multicast group IP from an URL string.
+    ///
+    /// \param url The URL to specify the server parameters.
+    /// \param err_h An error callback function that will be called if there is an
+    /// error in messge reception or server creation. Pass NULL if you do not want
+    /// error handling.
+    /// \return A new lo_server_thread instance.
     pub fn lo_server_thread_new_from_url(
         url: *const ::std::os::raw::c_char,
         err_h: lo_err_handler,
     ) -> lo_server_thread;
 }
 extern "C" {
-    #[doc = " \\brief Free memory taken by a server thread\n\n Frees the memory, and, if currently running will stop the associated thread."]
+    /// \brief Free memory taken by a server thread
+    ///
+    /// Frees the memory, and, if currently running will stop the associated thread.
     pub fn lo_server_thread_free(st: lo_server_thread);
 }
 extern "C" {
-    #[doc = " \\brief Add an OSC method to the specifed server thread.\n\n \\param st The server thread the method is to be added to.\n \\param path The OSC path to register the method to. If NULL is passed the\n method will match all paths.\n \\param typespec The typespec the method accepts. Incoming messages with\n similar typespecs (e.g. ones with numerical types in the same position) will\n be coerced to the typespec given here.\n \\param h The method handler callback function that will be called it a\n matching message is received\n \\param user_data A value that will be passed to the callback function, h,\n when its invoked matching from this method."]
+    /// \brief Add an OSC method to the specifed server thread.
+    ///
+    /// \param st The server thread the method is to be added to.
+    /// \param path The OSC path to register the method to. If NULL is passed the
+    /// method will match all paths.
+    /// \param typespec The typespec the method accepts. Incoming messages with
+    /// similar typespecs (e.g. ones with numerical types in the same position) will
+    /// be coerced to the typespec given here.
+    /// \param h The method handler callback function that will be called it a
+    /// matching message is received
+    /// \param user_data A value that will be passed to the callback function, h,
+    /// when its invoked matching from this method.
     pub fn lo_server_thread_add_method(
         st: lo_server_thread,
         path: *const ::std::os::raw::c_char,
@@ -3228,7 +3905,12 @@ extern "C" {
     ) -> lo_method;
 }
 extern "C" {
-    #[doc = " \\brief Delete an OSC method from the specifed server thread.\n\n \\param st The server thread the method is to be removed from.\n \\param path The OSC path of the method to delete. If NULL is passed the\n method will match the generic handler.\n \\param typespec The typespec the method accepts."]
+    /// \brief Delete an OSC method from the specifed server thread.
+    ///
+    /// \param st The server thread the method is to be removed from.
+    /// \param path The OSC path of the method to delete. If NULL is passed the
+    /// method will match the generic handler.
+    /// \param typespec The typespec the method accepts.
     pub fn lo_server_thread_del_method(
         st: lo_server_thread,
         path: *const ::std::os::raw::c_char,
@@ -3236,14 +3918,28 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " \\brief Delete an OSC method from the specified server thread.\n\n \\param s The server thread the method is to be removed from.\n \\param m The lo_method identifier returned from lo_server_add_method for\n          the method to delete from the server.\n \\return Non-zero if it was not found in the list of methods for the server."]
+    /// \brief Delete an OSC method from the specified server thread.
+    ///
+    /// \param s The server thread the method is to be removed from.
+    /// \param m The lo_method identifier returned from lo_server_add_method for
+    ///          the method to delete from the server.
+    /// \return Non-zero if it was not found in the list of methods for the server.
     pub fn lo_server_thread_del_lo_method(
         st: lo_server_thread,
         m: lo_method,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Set an init and/or a cleanup function to the specifed server thread.\n\n To have any effect, it must be called before the server thread is started.\n\n \\param st The server thread to which the method is to be added.\n \\param init The init function to be called just after thread start.\n             May be NULL.\n \\param cleanup The cleanup function to be called just before thread\n                exit.  May be NULL.\n \\param user_data A value that will be passed to the callback functions."]
+    /// \brief Set an init and/or a cleanup function to the specifed server thread.
+    ///
+    /// To have any effect, it must be called before the server thread is started.
+    ///
+    /// \param st The server thread to which the method is to be added.
+    /// \param init The init function to be called just after thread start.
+    ///             May be NULL.
+    /// \param cleanup The cleanup function to be called just before thread
+    ///                exit.  May be NULL.
+    /// \param user_data A value that will be passed to the callback functions.
     pub fn lo_server_thread_set_callbacks(
         st: lo_server_thread,
         init: lo_server_thread_init_callback,
@@ -3252,27 +3948,39 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " \\brief Start the server thread\n\n \\param st the server thread to start.\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief Start the server thread
+    ///
+    /// \param st the server thread to start.
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_server_thread_start(st: lo_server_thread) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Stop the server thread\n\n \\param st the server thread to start.\n \\return Less than 0 on failure, 0 on success."]
+    /// \brief Stop the server thread
+    ///
+    /// \param st the server thread to start.
+    /// \return Less than 0 on failure, 0 on success.
     pub fn lo_server_thread_stop(st: lo_server_thread) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the port number that the server thread has bound to."]
+    /// \brief Return the port number that the server thread has bound to.
     pub fn lo_server_thread_get_port(st: lo_server_thread) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return a URL describing the address of the server thread.\n\n Return value must be free()'d to reclaim memory."]
+    /// \brief Return a URL describing the address of the server thread.
+    ///
+    /// Return value must be free()'d to reclaim memory.
     pub fn lo_server_thread_get_url(st: lo_server_thread) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Return the lo_server for a lo_server_thread\n\n This function is useful for passing a thread's lo_server\n to lo_send_from()."]
+    /// \brief Return the lo_server for a lo_server_thread
+    ///
+    /// This function is useful for passing a thread's lo_server
+    /// to lo_send_from().
     pub fn lo_server_thread_get_server(st: lo_server_thread) -> lo_server;
 }
 extern "C" {
-    #[doc = " \\brief Return true if there are scheduled events (eg. from bundles) waiting\n to be dispatched by the thread"]
+    /// \brief Return true if there are scheduled events (eg. from bundles) waiting
+    /// to be dispatched by the thread
     pub fn lo_server_thread_events_pending(st: lo_server_thread) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -3282,18 +3990,41 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = " \\brief Pretty-print a lo_server_thread object."]
+    /// \brief Pretty-print a lo_server_thread object.
     pub fn lo_server_thread_pp(st: lo_server_thread);
 }
 extern "C" {
-    #[doc = " \\brief Declare an OSC destination, given IP address and port number.\n Same as lo_address_new_with_proto(), but using UDP.\n\n \\param host An IP address or number, or NULL for the local machine.\n \\param port a decimal port number or service name.\n\n The lo_address object may be used as the target of OSC messages.\n\n Note: if you wish to receive replies from the target of this\n address, you must first create a lo_server_thread or lo_server\n object which will receive the replies. The last lo_server(_thread)\n object craeted will be the receiver."]
+    /// \brief Declare an OSC destination, given IP address and port number.
+    /// Same as lo_address_new_with_proto(), but using UDP.
+    ///
+    /// \param host An IP address or number, or NULL for the local machine.
+    /// \param port a decimal port number or service name.
+    ///
+    /// The lo_address object may be used as the target of OSC messages.
+    ///
+    /// Note: if you wish to receive replies from the target of this
+    /// address, you must first create a lo_server_thread or lo_server
+    /// object which will receive the replies. The last lo_server(_thread)
+    /// object craeted will be the receiver.
     pub fn lo_address_new(
         host: *const ::std::os::raw::c_char,
         port: *const ::std::os::raw::c_char,
     ) -> lo_address;
 }
 extern "C" {
-    #[doc = " \\brief Declare an OSC destination, given IP address and port number,\n specifying protocol.\n\n \\param proto The protocol to use, must be one of LO_UDP, LO_TCP or LO_UNIX.\n \\param host An IP address or number, or NULL for the local machine.\n \\param port a decimal port number or service name.\n\n The lo_address object may be used as the target of OSC messages.\n\n Note: if you wish to receive replies from the target of this\n address, you must first create a lo_server_thread or lo_server\n object which will receive the replies. The last lo_server(_thread)\n object created will be the receiver."]
+    /// \brief Declare an OSC destination, given IP address and port number,
+    /// specifying protocol.
+    ///
+    /// \param proto The protocol to use, must be one of LO_UDP, LO_TCP or LO_UNIX.
+    /// \param host An IP address or number, or NULL for the local machine.
+    /// \param port a decimal port number or service name.
+    ///
+    /// The lo_address object may be used as the target of OSC messages.
+    ///
+    /// Note: if you wish to receive replies from the target of this
+    /// address, you must first create a lo_server_thread or lo_server
+    /// object which will receive the replies. The last lo_server(_thread)
+    /// object created will be the receiver.
     pub fn lo_address_new_with_proto(
         proto: ::std::os::raw::c_int,
         host: *const ::std::os::raw::c_char,
@@ -3301,15 +4032,31 @@ extern "C" {
     ) -> lo_address;
 }
 extern "C" {
-    #[doc = " \\brief Create a lo_address object from an OSC URL.\n\n example: \\c \"osc.udp://localhost:4444/my/path/\""]
+    /// \brief Create a lo_address object from an OSC URL.
+    ///
+    /// example: \c "osc.udp://localhost:4444/my/path/"
     pub fn lo_address_new_from_url(url: *const ::std::os::raw::c_char) -> lo_address;
 }
 extern "C" {
-    #[doc = " \\brief Free the memory used by the lo_address object"]
+    /// \brief Free the memory used by the lo_address object
     pub fn lo_address_free(t: lo_address);
 }
 extern "C" {
-    #[doc = " \\brief Send a OSC formatted message to the address specified.\n\n \\param targ The target OSC address\n \\param path The OSC path the message will be delivered to\n \\param type The types of the data items in the message, types are defined in\n lo_osc_types.h\n \\param ... The data values to be transmitted. The types of the arguments\n passed here must agree with the types specified in the type parameter.\n\n example:\n \\code\n lo_send(t, \"/foo/bar\", \"ff\", 0.1f, 23.0f);\n \\endcode\n\n \\return -1 on failure."]
+    /// \brief Send a OSC formatted message to the address specified.
+    ///
+    /// \param targ The target OSC address
+    /// \param path The OSC path the message will be delivered to
+    /// \param type The types of the data items in the message, types are defined in
+    /// lo_osc_types.h
+    /// \param ... The data values to be transmitted. The types of the arguments
+    /// passed here must agree with the types specified in the type parameter.
+    ///
+    /// example:
+    /// \code
+    /// lo_send(t, "/foo/bar", "ff", 0.1f, 23.0f);
+    /// \endcode
+    ///
+    /// \return -1 on failure.
     pub fn lo_send(
         targ: lo_address,
         path: *const ::std::os::raw::c_char,
@@ -3318,7 +4065,27 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Send a OSC formatted message to the address specified,\n from the same socket as the specified server.\n\n \\param targ The target OSC address\n \\param from The server to send message from   (can be NULL to use new socket)\n \\param ts   The OSC timetag timestamp at which the message will be processed\n (can be LO_TT_IMMEDIATE if you don't want to attach a timetag)\n \\param path The OSC path the message will be delivered to\n \\param type The types of the data items in the message, types are defined in\n lo_osc_types.h\n \\param ... The data values to be transmitted. The types of the arguments\n passed here must agree with the types specified in the type parameter.\n\n example:\n \\code\n serv = lo_server_new(NULL, err);\n lo_server_add_method(serv, \"/reply\", \"ss\", reply_handler, NULL);\n lo_send_from(t, serv, LO_TT_IMMEDIATE, \"/foo/bar\", \"ff\", 0.1f, 23.0f);\n \\endcode\n\n \\return on success, the number of bytes sent, or -1 on failure."]
+    /// \brief Send a OSC formatted message to the address specified,
+    /// from the same socket as the specified server.
+    ///
+    /// \param targ The target OSC address
+    /// \param from The server to send message from   (can be NULL to use new socket)
+    /// \param ts   The OSC timetag timestamp at which the message will be processed
+    /// (can be LO_TT_IMMEDIATE if you don't want to attach a timetag)
+    /// \param path The OSC path the message will be delivered to
+    /// \param type The types of the data items in the message, types are defined in
+    /// lo_osc_types.h
+    /// \param ... The data values to be transmitted. The types of the arguments
+    /// passed here must agree with the types specified in the type parameter.
+    ///
+    /// example:
+    /// \code
+    /// serv = lo_server_new(NULL, err);
+    /// lo_server_add_method(serv, "/reply", "ss", reply_handler, NULL);
+    /// lo_send_from(t, serv, LO_TT_IMMEDIATE, "/foo/bar", "ff", 0.1f, 23.0f);
+    /// \endcode
+    ///
+    /// \return on success, the number of bytes sent, or -1 on failure.
     pub fn lo_send_from(
         targ: lo_address,
         from: lo_server,
@@ -3329,7 +4096,25 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Send a OSC formatted message to the address specified, scheduled to\n be dispatch at some time in the future.\n\n \\param targ The target OSC address\n \\param ts The OSC timetag timestamp at which the message will be processed\n \\param path The OSC path the message will be delivered to\n \\param type The types of the data items in the message, types are defined in\n lo_osc_types.h\n \\param ... The data values to be transmitted. The types of the arguments\n passed here must agree with the types specified in the type parameter.\n\n example:\n \\code\n lo_timetag now;<br>\n lo_timetag_now(&now);<br>\n lo_send_timestamped(t, now, \"/foo/bar\", \"ff\", 0.1f, 23.0f);\n \\endcode\n\n \\return on success, the number of bytes sent, or -1 on failure."]
+    /// \brief Send a OSC formatted message to the address specified, scheduled to
+    /// be dispatch at some time in the future.
+    ///
+    /// \param targ The target OSC address
+    /// \param ts The OSC timetag timestamp at which the message will be processed
+    /// \param path The OSC path the message will be delivered to
+    /// \param type The types of the data items in the message, types are defined in
+    /// lo_osc_types.h
+    /// \param ... The data values to be transmitted. The types of the arguments
+    /// passed here must agree with the types specified in the type parameter.
+    ///
+    /// example:
+    /// \code
+    /// lo_timetag now;<br>
+    /// lo_timetag_now(&now);<br>
+    /// lo_send_timestamped(t, now, "/foo/bar", "ff", 0.1f, 23.0f);
+    /// \endcode
+    ///
+    /// \return on success, the number of bytes sent, or -1 on failure.
     pub fn lo_send_timestamped(
         targ: lo_address,
         ts: lo_timetag,
@@ -3339,31 +4124,64 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the error number from the last failed lo_send() or\n lo_address_new() call"]
+    /// \brief Return the error number from the last failed lo_send() or
+    /// lo_address_new() call
     pub fn lo_address_errno(a: lo_address) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    #[doc = " \\brief Return the error string from the last failed lo_send() or\n lo_address_new() call"]
+    /// \brief Return the error string from the last failed lo_send() or
+    /// lo_address_new() call
     pub fn lo_address_errstr(a: lo_address) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = " \\brief Create a new OSC blob type.\n\n \\param size The amount of space to allocate in the blob structure.\n \\param data The data that will be used to initialise the blob, should be\n size bytes long."]
+    /// \brief Create a new OSC blob type.
+    ///
+    /// \param size The amount of space to allocate in the blob structure.
+    /// \param data The data that will be used to initialise the blob, should be
+    /// size bytes long.
     pub fn lo_blob_new(size: i32, data: *const ::std::os::raw::c_void) -> lo_blob;
 }
 extern "C" {
-    #[doc = " \\brief Free the memory taken by a blob"]
+    /// \brief Free the memory taken by a blob
     pub fn lo_blob_free(b: lo_blob);
 }
 extern "C" {
-    #[doc = " \\brief Return the amount of valid data in a lo_blob object.\n\n If you want to know the storage size, use lo_arg_size()."]
+    /// \brief Return the amount of valid data in a lo_blob object.
+    ///
+    /// If you want to know the storage size, use lo_arg_size().
     pub fn lo_blob_datasize(b: lo_blob) -> u32;
 }
 extern "C" {
-    #[doc = " \\brief Return a pointer to the start of the blob data to allow contents to\n be changed."]
+    /// \brief Return a pointer to the start of the blob data to allow contents to
+    /// be changed.
     pub fn lo_blob_dataptr(b: lo_blob) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    #[doc = " \\brief Get information on the version of liblo current in use.\n\n All parameters are optional and can be given the value of 0 if that\n information is not desired.  For example, to get just the version\n as a string, call lo_version(str, size, 0, 0, 0, 0, 0, 0, 0);\n\n The \"lt\" fields, called the ABI version, corresponds to libtool's\n versioning system for binary interface compatibility, and is not\n related to the library version number.  This information is usually\n encoded in the filename of the shared library.\n\n Typically the string returned in 'verstr' should correspond with\n $major.$minor$extra, e.g., \"0.28rc\".  If no 'extra' information is\n present, e.g., \"0.28\", extra will given the null string.\n\n \\param verstr       A buffer to receive a string describing the\n                     library version.\n \\param verstr_size  Size of the buffer pointed to by string.\n \\param major        Location to receive the library major version.\n \\param minor        Location to receive the library minor version.\n \\param extra        Location to receive the library version extra string.\n \\param extra_size   Size of the buffer pointed to by extra.\n \\param lt_major     Location to receive the ABI major version.\n \\param lt_minor     Location to receive the ABI minor version.\n \\param lt_bug       Location to receive the ABI 'bugfix' version."]
+    /// \brief Get information on the version of liblo current in use.
+    ///
+    /// All parameters are optional and can be given the value of 0 if that
+    /// information is not desired.  For example, to get just the version
+    /// as a string, call lo_version(str, size, 0, 0, 0, 0, 0, 0, 0);
+    ///
+    /// The "lt" fields, called the ABI version, corresponds to libtool's
+    /// versioning system for binary interface compatibility, and is not
+    /// related to the library version number.  This information is usually
+    /// encoded in the filename of the shared library.
+    ///
+    /// Typically the string returned in 'verstr' should correspond with
+    /// $major.$minor$extra, e.g., "0.28rc".  If no 'extra' information is
+    /// present, e.g., "0.28", extra will given the null string.
+    ///
+    /// \param verstr       A buffer to receive a string describing the
+    ///                     library version.
+    /// \param verstr_size  Size of the buffer pointed to by string.
+    /// \param major        Location to receive the library major version.
+    /// \param minor        Location to receive the library minor version.
+    /// \param extra        Location to receive the library version extra string.
+    /// \param extra_size   Size of the buffer pointed to by extra.
+    /// \param lt_major     Location to receive the ABI major version.
+    /// \param lt_minor     Location to receive the ABI minor version.
+    /// \param lt_bug       Location to receive the ABI 'bugfix' version.
     pub fn lo_version(
         verstr: *mut ::std::os::raw::c_char,
         verstr_size: ::std::os::raw::c_int,
