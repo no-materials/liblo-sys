@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        toolchain: [stable]
+        toolchain: [nightly]
 
     steps:
       - name: Checkout repository
