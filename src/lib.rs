@@ -1,13 +1,6 @@
-#![allow(
-    dead_code,
-    non_camel_case_types,
-    non_upper_case_globals,
-    non_snake_case
-)]
-
 mod lo_sys;
 
-pub use crate::lo_sys::*;
+pub use lo_sys::*;
 
 #[cfg(test)]
 mod tests {

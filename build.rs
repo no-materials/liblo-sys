@@ -26,6 +26,9 @@ fn generate_bindings(include_paths: Vec<PathBuf>) {
         .header("wrapper.h")
         .clang_arg("-DHAVE_CONFIG_H=1")
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
+        .raw_line(
+            "#![allow(dead_code, non_camel_case_types, non_upper_case_globals, non_snake_case)]",
+        )
         .blocklist_item("IPPORT_RESERVED");
 
     // Provide the necessary include paths to bindgen's internal clang instance
