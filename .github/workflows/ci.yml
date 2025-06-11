@@ -35,12 +35,15 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Install nightly Rust toolchain (for rustfmt)
+      - name: Install nightly Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
           profile: minimal
           override: false
+
+      - name: Add nightly rustfmt component
+        run: rustup component add --toolchain nightly rustfmt
 
       - name: Cache cargo registry
         uses: actions/cache@v3
