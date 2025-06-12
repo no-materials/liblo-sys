@@ -10,12 +10,12 @@ This crate provides unsafe Rust bindings to liblo, allowing you to send and rece
 
 ### Prerequisites
 
-- **liblo version**: Requires liblo >= 0.31
+- **liblo version**: Requires liblo >= 0.32
 - **Rust**: Standard Rust toolchain
 
 ### System Installation
 
-By default, this crate will search for a system-installed liblo using pkg-config.
+By default, this crate will search for a system-installed liblo using pkg-config and attempt to link to it.
 
 **On NixOS:**
 The package is included in the default dev-shell of the crate's flake.
@@ -31,6 +31,14 @@ sudo apt-get install liblo-dev
 **On macOS (with Homebrew):**
 ```bash
 brew install liblo
+```
+
+## Binding generation
+
+Bindings can be regenerated using the `generate_bindings` binary. They will be placed in `src/lo_sys.rs`.
+
+```bash
+cargo run --bin generate-bindings
 ```
 
 ## Contributing

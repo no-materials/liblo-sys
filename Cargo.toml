@@ -13,8 +13,12 @@ categories = ["multimedia::audio", "external-ffi-bindings"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-libc = "0.2"
+pkg-config = "0.3"
+bindgen = "0.72" 
 
 [build-dependencies]
-bindgen = "0.72"
 pkg-config = "0.3"
+
+[[bin]]
+name = "generate-bindings"
+path = "src/bin/generate_bindings.rs"

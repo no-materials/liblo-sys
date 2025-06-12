@@ -1,43 +1,12 @@
-use std::env;
-use std::path::PathBuf;
-
 fn main() {
-    let mut include_paths: Vec<PathBuf> = Vec::new();
-
-    try_pkg_config(&mut include_paths);
-
-    generate_bindings(include_paths);
+    try_pkg_config();
 }
 
 /// Use pkg-config to find system liblo
-fn try_pkg_config(include_paths: &mut Vec<PathBuf>) {
+fn try_pkg_config() {
     // Probe system liblo via pkg-config
-    let library = pkg_config::Config::new()
-        .atleast_version("0.31")
+    let _ = pkg_config::Config::new()
+        .atleast_version("0.32")
         .probe("liblo")
         .expect("Could not find system liblo via pkg-config. Please install liblo.");
-
-    // Add include paths from pkg-config for bindgen
-    include_paths.extend(library.include_paths);
-}
-
-/// Generate bindings using bindgen
-fn generate_bindings(include_paths: Vec<PathBuf>) {
-    let mut builder = bindgen::Builder::default()
-        .header("wrapper.h")
-        .clang_arg("-DHAVE_CONFIG_H=1")
-        .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
-        .blocklist_item("IPPORT_RESERVED");
-
-    // Provide the necessary include paths to bindgen's internal clang instance
-    for path in include_paths {
-        builder = builder.clang_arg(format!("-I{}", path.display()));
-    }
-
-    let bindings = builder.generate().expect("Unable to generate bindings");
-
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    bindings
-        .write_to_file(out_path.join("bindings.rs"))
-        .expect("Couldn't write bindings!");
 }
