@@ -22,7 +22,7 @@ jobs:
         run: |
           if [ -x "$(command -v apt-get)" ]; then
             sudo apt-get update
-            sudo apt-get install -y liblo-dev pkg-config
+            sudo apt-get install -y liblo pkg-config
           elif [ -x "$(command -v brew)" ]; then
             brew update
             brew install liblo
