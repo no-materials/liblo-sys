@@ -1,6 +1,6 @@
 [package]
 name = "liblo-sys"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 authors = ["nomaterials <nomaterials@gmail.com>"]
 description = "Raw FFI bindings for liblo (Open Sound Control library)"
