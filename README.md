@@ -59,4 +59,5 @@ at your option.
 ## Links
 
 - [liblo upstream repository](https://github.com/radarsat1/liblo)
+- [liblo docs](https://liblo.sourceforge.net/docs/modules.html)
 - [Open Sound Control specification](http://opensoundcontrol.org/)
